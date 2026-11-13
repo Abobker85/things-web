@@ -17,6 +17,13 @@ const STRINGS_BY_LANG_CODE: Record<string, Record<string, ThingsStringValue>> = 
 
 export const THINGS_LANG_CODES = Object.keys(STRINGS_BY_LANG_CODE);
 
+const RTL_LANG_CODES = new Set(['ar']);
+
+// A Things server doesn't say which languages read right to left
+export function isThingsRtlLangCode(langCode: string | undefined) {
+  return Boolean(langCode && RTL_LANG_CODES.has(langCode));
+}
+
 /**
  * Returns Things' own text for a key, in the given language when Things has it and in English otherwise.
  * `isFallback` tells the caller that the text is English although another language was asked for.

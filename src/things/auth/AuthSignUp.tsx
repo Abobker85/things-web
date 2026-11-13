@@ -97,7 +97,7 @@ const AuthSignUp = ({
 
   return (
     <div id="auth-registration-form" className="custom-scroll">
-      <div className="auth-form">
+      <div className="auth-form" dir={lang.isRtl ? 'rtl' : undefined}>
         <form action="" method="post" onSubmit={handleSubmit}>
           <AvatarEditable onChange={setCroppedFile} />
           <h2>{lang('ThingsSignUpTitle')}</h2>

@@ -104,7 +104,7 @@ const AuthEmail = ({
 
   return (
     <div id="auth-phone-number-form" className="custom-scroll">
-      <div className="auth-form">
+      <div className="auth-form" dir={lang.isRtl ? 'rtl' : undefined}>
         <div id="logo" />
         <h1>{lang('AuthTitle')}</h1>
         <p className="note">{lang('ThingsAuthEmailNote')}</p>

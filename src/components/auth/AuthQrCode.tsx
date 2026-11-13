@@ -145,7 +145,8 @@ const AuthCode = ({
           onClick={handleBackNavigation}
         />
       )}
-      <div className="auth-form qr">
+      {/* Things: Arabic lays the screen out right to left */}
+      <div className="auth-form qr" dir={lang.isRtl ? 'rtl' : undefined}>
         <div className="qr-outer">
           <div
             className={buildClassName('qr-inner', transitionClassNames)}

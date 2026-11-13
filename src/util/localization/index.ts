@@ -27,7 +27,7 @@ import {
 import { FORCE_FALLBACK_LANG, LANG_PACK } from '../../config';
 import { callApi } from '../../api/gramjs';
 import renderText, { type TextFilter } from '../../components/common/helpers/renderText';
-import { getThingsString } from '../../things/localization';
+import { getThingsString, isThingsRtlLangCode } from '../../things/localization';
 import { IS_INTL_LIST_FORMAT_SUPPORTED } from '../browser/globalEnvironment';
 import { MAIN_IDB_STORE } from '../browser/idb';
 import { getBasicListFormat } from '../browser/intlListFormat';
@@ -441,7 +441,8 @@ function createTranslationFn(): LangFn {
     return processTranslation(key, variables as Record<string, LangVariable>, options);
   }) as LangFn;
   fn.rawCode = language?.langCode || FORMATTERS_FALLBACK_LANG;
-  fn.isRtl = language?.isRtl;
+  // Things: Arabic reads right to left even when the server's language info doesn't say so
+  fn.isRtl = language?.isRtl || isThingsRtlLangCode(language?.langCode);
   fn.code = language?.pluralCode || FORMATTERS_FALLBACK_LANG;
   fn.timeFormat = currentTimeFormat;
   fn.withRegular = ({ key, variables, options }: LangFnParametersShape<LangFnOptions>) => {

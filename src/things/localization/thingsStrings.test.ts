@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import readStrings from '../../util/data/readStrings';
 import arStrings from './ar.strings?raw';
 import enStrings from './en.strings?raw';
-import { getThingsString, THINGS_LANG_CODES } from '.';
+import { getThingsString, isThingsRtlLangCode, THINGS_LANG_CODES } from '.';
 
 const VARIABLE_RE = /\{\w+\}/g;
 
@@ -40,5 +40,11 @@ describe('Things texts', () => {
 
   it('leaves keys it does not have to upstream', () => {
     expect(getThingsString('en', 'Next')).toBeUndefined();
+  });
+
+  it('reads Arabic right to left and English left to right', () => {
+    expect(isThingsRtlLangCode('ar')).toBe(true);
+    expect(isThingsRtlLangCode('en')).toBe(false);
+    expect(isThingsRtlLangCode(undefined)).toBe(false);
   });
 });

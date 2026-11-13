@@ -70,7 +70,7 @@ const AuthThingsPassword = ({
 
   return (
     <div id="auth-password-form" className="custom-scroll">
-      <div className="auth-form">
+      <div className="auth-form" dir={lang.isRtl ? 'rtl' : undefined}>
         <MonkeyPassword isPasswordVisible={isPasswordVisible} />
         <h1>{lang('LoginHeaderPassword')}</h1>
         <p className="note">{lang('LoginEnterPasswordDescription')}</p>

@@ -48,9 +48,16 @@ const AuthEmailCode = ({
     }
   }, []);
 
+  // The screen stays mounted, so the old code must not meet the next one
+  const handleReturnToEmail = useLastCallback(() => {
+    setCode('');
+    setIsTracking(false);
+    returnToAuthPhoneNumber();
+  });
+
   useHistoryBack({
     isActive: true,
-    onBack: returnToAuthPhoneNumber,
+    onBack: handleReturnToEmail,
   });
 
   const handleCodeChange = useLastCallback((e: React.FormEvent<HTMLInputElement>) => {
@@ -74,13 +81,9 @@ const AuthEmailCode = ({
     }
   });
 
-  const handleReturnToEmail = useLastCallback(() => {
-    returnToAuthPhoneNumber();
-  });
-
   return (
     <div id="auth-code-form" className="custom-scroll">
-      <div className="auth-form">
+      <div className="auth-form" dir={lang.isRtl ? 'rtl' : undefined}>
         <TrackingMonkey
           code={code}
           codeLength={codeLength}
