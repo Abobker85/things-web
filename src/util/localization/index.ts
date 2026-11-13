@@ -483,15 +483,17 @@ function getIntlLocale(languageInfo = language) {
   return languageInfo?.pluralCode || FORMATTERS_FALLBACK_LANG;
 }
 
-function getString(langKey: LangKey, count: number) {
+function getString(langKey: LangKey, count: number): string | undefined {
   // Things: Things' own texts come first, so they also replace upstream's wording
   const thingsString = getThingsString(language?.langCode, langKey);
   if (thingsString) {
     const pluralRules = thingsString.isFallback ? FALLBACK_PLURAL_RULES : formatters.pluralRules;
+    const { value } = thingsString;
+    if (typeof value === 'string') {
+      return value;
+    }
 
-    return isPluralLangString(thingsString.value)
-      ? (thingsString.value[pluralRules.select(count)] ?? thingsString.value.other)
-      : thingsString.value;
+    return value[pluralRules.select(count)] ?? value.other;
   }
 
   const shouldForceFallback = FORCE_FALLBACK_LANG && language?.langCode === FALLBACK_LANG_CODE;
@@ -573,7 +575,7 @@ function processTranslationAdvanced(
   let tempResult: TeactNode = string;
   if (options?.specialReplacement) {
     const specialReplacements = Object.entries(options.specialReplacement);
-    tempResult = specialReplacements.reduce((acc, [key, value]) => {
+    tempResult = specialReplacements.reduce<TeactNode>((acc, [key, value]) => {
       return replaceInStringsWithTeact(acc, key, value);
     }, tempResult);
   }

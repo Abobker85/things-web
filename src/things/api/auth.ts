@@ -17,7 +17,7 @@ export type ThingsPasswordResetResult = {
   date: number;
 };
 
-// Works before sign-in. Once signed in, upstream's `account.checkUsername` is the one to use
+// Works before sign-in. Once signed in, upstream's `account.checkUsername` is the one to use.
 export async function checkEmailAuthUsername(username: string): Promise<ThingsUsernameCheckResult | undefined> {
   try {
     const isFree = await invokeRequest(new GramJs.emailauth.CheckUsername({ username }), { shouldThrow: true });

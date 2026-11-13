@@ -22,7 +22,7 @@ type StateProps = {
   language?: string;
 };
 
-// Good enough to catch a slip. The server decides what a valid address is
+// Good enough to catch a slip. The server decides what a valid address is.
 const EMAIL_RE = /^\S+@\S+\.\S+$/;
 
 const AuthEmail = ({

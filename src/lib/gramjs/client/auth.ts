@@ -141,7 +141,7 @@ async function signInUserWithWebToken(
   }
 }
 
-// Things: accounts sign in by email, never by phone. The phone callbacks carry the email flow's steps
+// Things: accounts sign in by email, never by phone. The phone callbacks carry the email flow's steps.
 function signInUser(
   client: TelegramClient, apiCredentials: ApiCredentials, authParams: UserAuthParams,
 ): Promise<Api.TypeUser> {

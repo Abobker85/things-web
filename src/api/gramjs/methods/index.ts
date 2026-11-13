@@ -14,7 +14,7 @@ export {
   broadcastLocalDbUpdateFull,
 } from '../localDb';
 
-// Things
+// Things: email sign-in calls
 export * from '../../../things/api/auth';
 
 export * from './account';
