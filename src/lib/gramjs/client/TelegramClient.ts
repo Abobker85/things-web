@@ -13,6 +13,7 @@ import type { UserAuthParams } from './auth';
 import type { DownloadFileParams, DownloadFileWithDcParams, DownloadMediaParams } from './downloadFile';
 import type { UploadFileParams } from './uploadFile';
 
+import { THINGS_LAYER, THINGS_SERVER_DC_ID } from '../../../config';
 import Deferred from '../../../util/Deferred';
 import { concat } from '../../../util/encoding/buffer';
 import { toJSNumber } from '../../../util/numbers';
@@ -93,7 +94,7 @@ type EventBuilder = {
   build: (update: Update) => Update;
 };
 
-const DEFAULT_DC_ID = 2;
+const DEFAULT_DC_ID = THINGS_SERVER_DC_ID;
 const DEFAULT_WEBDOCUMENT_DC_ID = 4;
 const EXPORTED_SENDER_RECONNECT_TIMEOUT = 1000; // 1 sec
 const EXPORTED_SENDER_RELEASE_TIMEOUT = 30000; // 30 sec
@@ -282,6 +283,12 @@ class TelegramClient {
           systemLangCode: args.systemLangCode,
           query: x,
           proxy: undefined, // no proxies yet.
+          params: new Api.JsonObject({
+            value: [new Api.JsonObjectValue({
+              key: 'things_layer',
+              value: new Api.JsonNumber({ value: THINGS_LAYER }),
+            })],
+          }),
         }),
       });
     };
@@ -388,7 +395,7 @@ class TelegramClient {
       const DC = getDC(this.defaultDcId);
       // TODO Fill IP addresses for when `this._useIPV6` is used
       this.session.setDC(
-        this.defaultDcId, DC.ipAddress, this._args.useWSS ? 443 : 80, this._args.isTestServerRequested,
+        this.defaultDcId, DC.ipAddress, DC.port, this._args.isTestServerRequested,
       );
     }
 
@@ -662,7 +669,7 @@ class TelegramClient {
     }
 
     while (true) {
-      const dc = getDC(dcId, hasAuthKey);
+      const dc = getDC(dcId);
       try {
         await sender.connect(new this._connection({
           ip: dc.ipAddress,

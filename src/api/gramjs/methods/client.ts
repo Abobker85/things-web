@@ -104,7 +104,6 @@ export async function init(initialArgs: ApiInitialArgs, onConnected?: NoneToVoid
 
   const {
     userAgent, platform, sessionData, isWebmSupported, maxBufferSize, webAuthToken, dcId,
-    shouldForceHttpTransport, shouldAllowHttpTransport,
     shouldDebugExportedSenders, langCode, isTestServerRequested, accountIds,
     hasPasskeySupport, webAuthUserId,
   } = initialArgs;
@@ -122,8 +121,9 @@ export async function init(initialArgs: ApiInitialArgs, onConnected?: NoneToVoid
     useWSS: true,
     additionalDcsDisabled: IS_TEST,
     shouldDebugExportedSenders,
-    shouldForceHttpTransport,
-    shouldAllowHttpTransport,
+    // Things: the server has no HTTP transport
+    shouldForceHttpTransport: false,
+    shouldAllowHttpTransport: false,
     dcId,
     langPack: LANG_PACK,
     langCode,

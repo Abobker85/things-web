@@ -1,3 +1,27 @@
+# Things Web
+
+The web app for Things, built on a fork of [Telegram Web A](https://github.com/Ajaxy/telegram-tt) and licensed under GPL-3.0-or-later like it. It talks to a Things server (a gramsrv fork) instead of Telegram, and adds the Things features on top of Web A's chats.
+
+## Running against a Things server
+
+Building needs Node 24 or newer.
+
+1. Copy `.env.example` to `.env` and fill in:
+   - `THINGS_SERVER_HOST`, `THINGS_SERVER_PORT` and `THINGS_SERVER_DC_ID`: the server's WebSocket address. Port 443 connects with `wss`; any other port connects with plain `ws`, which browsers only allow from a page on `http://localhost`.
+   - `THINGS_SERVER_PUBLIC_KEY`: the server's RSA public key, as the PEM block on one line with `\n` between lines, or only its base64 body.
+   - `TELEGRAM_API_ID` and `TELEGRAM_API_HASH`: any values; a Things server doesn't check them.
+2. Run `npm i`, then `npm run dev`, and open http://localhost:1234 (the server must list that address in its allowed WebSocket origins).
+
+Never commit a real `.env`, a test sign-in code or any server secret: this repository is public.
+
+## Keeping up with Telegram Web A
+
+Upstream is the `upstream` remote. The app's MTProto layer must never be newer than the one the Things server accepts, so merges from upstream stop at the last commit on a layer the server serves. Things code lives in its own folders (`src/things`, `dev/things`); edits to upstream files are kept small and marked with a `Things:` comment.
+
+The rest of this page is upstream's README.
+
+---
+
 # Telegram Web A
 
 This project won the first prize 🥇 at [Telegram Lightweight Client Contest](https://contest.com/javascript-web-3) and now is an official Telegram client available to anyone at [web.telegram.org/a](https://web.telegram.org/a).

@@ -17,6 +17,12 @@ interface ImportMetaEnv {
   readonly TG_TELEGRAM_API_HASH?: string;
   readonly TG_TELEGRAM_API_ID?: string;
   readonly TG_TEST_SESSION?: string;
+  readonly TG_THINGS_SERVER_DC_ID?: string;
+  readonly TG_THINGS_SERVER_HOST?: string;
+  readonly TG_THINGS_SERVER_KEY_E?: string;
+  readonly TG_THINGS_SERVER_KEY_FINGERPRINT?: string;
+  readonly TG_THINGS_SERVER_KEY_N?: string;
+  readonly TG_THINGS_SERVER_PORT?: string;
   readonly TG_VAPID_KEY?: string;
 }
 

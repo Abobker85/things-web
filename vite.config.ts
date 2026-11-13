@@ -8,6 +8,7 @@ import { defineConfig, loadEnv, normalizePath, type Plugin, type PluginOption, t
 import { type Target, viteStaticCopy } from 'vite-plugin-static-copy';
 import { watchAndRun } from 'vite-plugin-watch-and-run';
 
+import { readThingsServerSettings } from './dev/things/serverSettings.ts';
 import buildGitInfoPlugin from './plugins/gitInfo.ts';
 import packageJson from './package.json' with { type: 'json' };
 
@@ -84,7 +85,8 @@ export default defineConfig(({ mode }): UserConfig => {
   const appleIcon = isProductionApp ? 'apple-touch-icon' : 'apple-touch-icon-dev';
   const mainIcon = isProductionApp ? 'icon-192x192' : 'icon-dev-192x192';
   const manifest = isProductionApp ? 'site.webmanifest' : 'site_dev.webmanifest';
-  const csp = buildCsp(appEnv);
+  const thingsServer = readThingsServerSettings(env, appEnv !== 'test');
+  const csp = buildCsp(appEnv, buildThingsServerOrigin(thingsServer));
   const isDevelopmentMode = mode === 'development';
   const telegramApiId = env.TELEGRAM_API_ID || '';
   const telegramApiHash = env.TELEGRAM_API_HASH || '';
@@ -183,6 +185,7 @@ export default defineConfig(({ mode }): UserConfig => {
     TG_TELEGRAM_API_HASH: telegramApiHash,
     TG_VAPID_KEY: env.VAPID_KEY || '',
     TG_TEST_SESSION: env.TEST_SESSION || '',
+    ...thingsServer,
   });
 
   return {
@@ -289,12 +292,20 @@ function setViteEnv(env: Record<string, string>) {
   });
 }
 
-function buildCsp(appEnv: string) {
+// Things: plain WebSocket is only for a local run against a test server; a hosted app uses port 443
+function buildThingsServerOrigin(server: ReturnType<typeof readThingsServerSettings>) {
+  if (!server.TG_THINGS_SERVER_HOST) return '';
+
+  return server.TG_THINGS_SERVER_PORT === '443'
+    ? `wss://${server.TG_THINGS_SERVER_HOST}`
+    : `ws://${server.TG_THINGS_SERVER_HOST}:${server.TG_THINGS_SERVER_PORT}`;
+}
+
+function buildCsp(appEnv: string, thingsServerOrigin: string) {
   return `
   default-src 'self';
-  connect-src 'self' wss://*.web.telegram.org blob: http: https: wss: ${appEnv === 'development' ? 'ipc:' : ''};
-  script-src 'self' 'wasm-unsafe-eval'
-    https://t.me/_websync_ https://telegram.me/_websync_ https://telegram.dog/_websync_;
+  connect-src 'self' ${thingsServerOrigin} blob: http: https: wss: ${appEnv === 'development' ? 'ipc:' : ''};
+  script-src 'self' 'wasm-unsafe-eval';
   worker-src 'self'${appEnv === 'development' ? ' blob:' : ''};
   style-src 'self' 'unsafe-inline';
   font-src 'self' data:;
