@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import { appendThingsSchema } from '../../../../../dev/things/schema';
 import { parseTl } from '../generationHelpers';
 import templateFn from './template';
 
@@ -17,7 +18,8 @@ const SCHEMA_FILE = path.resolve(DIR_NAME, '../static/schema.tl');
 const OUTPUT_FILE = path.resolve(DIR_NAME, '../api.d.ts');
 
 function main() {
-    const tlContent = fs.readFileSync(INPUT_FILE, 'utf-8');
+    // Things: the Things additions join upstream's API schema
+    const tlContent = appendThingsSchema(fs.readFileSync(INPUT_FILE, 'utf-8'));
     const apiConfig = extractParams(tlContent);
     const schemeContent = fs.readFileSync(SCHEMA_FILE, 'utf-8');
     const schemeConfig = extractParams(schemeContent);

@@ -49,7 +49,7 @@ export const THINGS_SERVER_KEY_E = Number(import.meta.env.TG_THINGS_SERVER_KEY_E
 export const THINGS_SERVER_KEY_FINGERPRINT = import.meta.env.TG_THINGS_SERVER_KEY_FINGERPRINT || '';
 // Version of the Things additions this app reads, announced when the connection opens.
 // Raise it only when the app can read every update that version adds
-export const THINGS_LAYER = 1;
+export const THINGS_LAYER = 3;
 
 export const SESSION_LEGACY_USER_KEY = 'user_auth';
 export const SESSION_ACCOUNT_PREFIX = 'account';

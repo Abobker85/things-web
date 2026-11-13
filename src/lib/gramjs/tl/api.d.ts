@@ -51,7 +51,7 @@ namespace Api {
   export type TypeInputUser = InputUserEmpty | InputUserSelf | InputUser | InputUserFromMessage;
   export type TypeInputContact = InputPhoneContact;
   export type TypeInputFile = InputFile | InputFileBig | InputFileStoryDocument;
-  export type TypeInputMedia = InputMediaEmpty | InputMediaUploadedPhoto | InputMediaPhoto | InputMediaGeoPoint | InputMediaContact | InputMediaUploadedDocument | InputMediaDocument | InputMediaVenue | InputMediaPhotoExternal | InputMediaDocumentExternal | InputMediaGame | InputMediaInvoice | InputMediaGeoLive | InputMediaPoll | InputMediaDice | InputMediaStory | InputMediaWebPage | InputMediaPaidMedia | InputMediaTodo | InputMediaStakeDice;
+  export type TypeInputMedia = InputMediaEmpty | InputMediaUploadedPhoto | InputMediaPhoto | InputMediaGeoPoint | InputMediaContact | InputMediaUploadedDocument | InputMediaDocument | InputMediaVenue | InputMediaPhotoExternal | InputMediaDocumentExternal | InputMediaGame | InputMediaInvoice | InputMediaGeoLive | InputMediaPoll | InputMediaDice | InputMediaStory | InputMediaWebPage | InputMediaPaidMedia | InputMediaTodo | InputMediaStakeDice | InputMediaPost;
   export type TypeInputChatPhoto = InputChatPhotoEmpty | InputChatUploadedPhoto | InputChatPhoto;
   export type TypeInputGeoPoint = InputGeoPointEmpty | InputGeoPoint;
   export type TypeInputPhoto = InputPhotoEmpty | InputPhoto;
@@ -66,7 +66,7 @@ namespace Api {
   export type TypeChatParticipants = ChatParticipantsForbidden | ChatParticipants;
   export type TypeChatPhoto = ChatPhotoEmpty | ChatPhoto;
   export type TypeMessage = MessageEmpty | Message | MessageService;
-  export type TypeMessageMedia = MessageMediaEmpty | MessageMediaPhoto | MessageMediaGeo | MessageMediaContact | MessageMediaUnsupported | MessageMediaDocument | MessageMediaWebPage | MessageMediaVenue | MessageMediaGame | MessageMediaInvoice | MessageMediaGeoLive | MessageMediaPoll | MessageMediaDice | MessageMediaStory | MessageMediaGiveaway | MessageMediaGiveawayResults | MessageMediaPaidMedia | MessageMediaToDo | MessageMediaVideoStream;
+  export type TypeMessageMedia = MessageMediaEmpty | MessageMediaPhoto | MessageMediaGeo | MessageMediaContact | MessageMediaUnsupported | MessageMediaDocument | MessageMediaWebPage | MessageMediaVenue | MessageMediaGame | MessageMediaInvoice | MessageMediaGeoLive | MessageMediaPoll | MessageMediaDice | MessageMediaStory | MessageMediaGiveaway | MessageMediaGiveawayResults | MessageMediaPaidMedia | MessageMediaToDo | MessageMediaVideoStream | MessageMediaPost;
   export type TypeMessageAction = MessageActionEmpty | MessageActionChatCreate | MessageActionChatEditTitle | MessageActionChatEditPhoto | MessageActionChatDeletePhoto | MessageActionChatAddUser | MessageActionChatDeleteUser | MessageActionChatJoinedByLink | MessageActionChannelCreate | MessageActionChatMigrateTo | MessageActionChannelMigrateFrom | MessageActionPinMessage | MessageActionHistoryClear | MessageActionGameScore | MessageActionPaymentSentMe | MessageActionPaymentSent | MessageActionPhoneCall | MessageActionScreenshotTaken | MessageActionCustomAction | MessageActionBotAllowed | MessageActionSecureValuesSentMe | MessageActionSecureValuesSent | MessageActionContactSignUp | MessageActionGeoProximityReached | MessageActionGroupCall | MessageActionInviteToGroupCall | MessageActionSetMessagesTTL | MessageActionGroupCallScheduled | MessageActionSetChatTheme | MessageActionChatJoinedByRequest | MessageActionWebViewDataSentMe | MessageActionWebViewDataSent | MessageActionGiftPremium | MessageActionTopicCreate | MessageActionTopicEdit | MessageActionSuggestProfilePhoto | MessageActionRequestedPeer | MessageActionSetChatWallPaper | MessageActionGiftCode | MessageActionGiveawayLaunch | MessageActionGiveawayResults | MessageActionBoostApply | MessageActionRequestedPeerSentMe | MessageActionPaymentRefunded | MessageActionGiftStars | MessageActionPrizeStars | MessageActionStarGift | MessageActionStarGiftUnique | MessageActionPaidMessagesRefunded | MessageActionPaidMessagesPrice | MessageActionConferenceCall | MessageActionTodoCompletions | MessageActionTodoAppendTasks | MessageActionSuggestedPostApproval | MessageActionSuggestedPostSuccess | MessageActionSuggestedPostRefund | MessageActionGiftTon | MessageActionSuggestBirthday | MessageActionStarGiftPurchaseOffer | MessageActionStarGiftPurchaseOfferDeclined | MessageActionNewCreatorPending | MessageActionChangeCreator | MessageActionNoForwardsToggle | MessageActionNoForwardsRequest | MessageActionPollAppendAnswer | MessageActionPollDeleteAnswer | MessageActionManagedBotCreated | MessageActionChangeCommunity | MessageActionChatJoinedViaCommunity | MessageActionGramTransfer | MessageActionWalletTonConnectRequest | MessageActionNoPaidMessagesTokenUsed;
   export type TypeDialog = Dialog | DialogFolder | DialogCommunity;
   export type TypePhoto = PhotoEmpty | Photo;
@@ -83,7 +83,7 @@ namespace Api {
   export type TypeImportedContact = ImportedContact;
   export type TypeContactStatus = ContactStatus;
   export type TypeMessagesFilter = InputMessagesFilterEmpty | InputMessagesFilterPhotos | InputMessagesFilterVideo | InputMessagesFilterPhotoVideo | InputMessagesFilterDocument | InputMessagesFilterUrl | InputMessagesFilterGif | InputMessagesFilterVoice | InputMessagesFilterMusic | InputMessagesFilterChatPhotos | InputMessagesFilterPhoneCalls | InputMessagesFilterRoundVoice | InputMessagesFilterRoundVideo | InputMessagesFilterMyMentions | InputMessagesFilterGeo | InputMessagesFilterContacts | InputMessagesFilterPinned | InputMessagesFilterPoll;
-  export type TypeUpdate = UpdateNewMessage | UpdateMessageID | UpdateDeleteMessages | UpdateUserTyping | UpdateChatUserTyping | UpdateChatParticipants | UpdateUserStatus | UpdateUserName | UpdateNewAuthorization | UpdateNewEncryptedMessage | UpdateEncryptedChatTyping | UpdateEncryption | UpdateEncryptedMessagesRead | UpdateChatParticipantAdd | UpdateChatParticipantDelete | UpdateDcOptions | UpdateNotifySettings | UpdateServiceNotification | UpdatePrivacy | UpdateUserPhone | UpdateReadHistoryInbox | UpdateReadHistoryOutbox | UpdateWebPage | UpdateReadMessagesContents | UpdateChannelTooLong | UpdateChannel | UpdateNewChannelMessage | UpdateReadChannelInbox | UpdateDeleteChannelMessages | UpdateChannelMessageViews | UpdateChatParticipantAdmin | UpdateNewStickerSet | UpdateStickerSetsOrder | UpdateStickerSets | UpdateSavedGifs | UpdateBotInlineQuery | UpdateBotInlineSend | UpdateEditChannelMessage | UpdateBotCallbackQuery | UpdateEditMessage | UpdateInlineBotCallbackQuery | UpdateReadChannelOutbox | UpdateDraftMessage | UpdateReadFeaturedStickers | UpdateRecentStickers | UpdateConfig | UpdatePtsChanged | UpdateChannelWebPage | UpdateDialogPinned | UpdatePinnedDialogs | UpdateBotWebhookJSON | UpdateBotWebhookJSONQuery | UpdateBotShippingQuery | UpdateBotPrecheckoutQuery | UpdatePhoneCall | UpdateLangPackTooLong | UpdateLangPack | UpdateFavedStickers | UpdateChannelReadMessagesContents | UpdateContactsReset | UpdateChannelAvailableMessages | UpdateDialogUnreadMark | UpdateMessagePoll | UpdateChatDefaultBannedRights | UpdateFolderPeers | UpdatePeerSettings | UpdatePeerLocated | UpdateNewScheduledMessage | UpdateDeleteScheduledMessages | UpdateTheme | UpdateGeoLiveViewed | UpdateLoginToken | UpdateMessagePollVote | UpdateDialogFilter | UpdateDialogFilterOrder | UpdateDialogFilters | UpdatePhoneCallSignalingData | UpdateChannelMessageForwards | UpdateReadChannelDiscussionInbox | UpdateReadChannelDiscussionOutbox | UpdatePeerBlocked | UpdateChannelUserTyping | UpdatePinnedMessages | UpdatePinnedChannelMessages | UpdateChat | UpdateGroupCallParticipants | UpdateGroupCall | UpdatePeerHistoryTTL | UpdateChatParticipant | UpdateChannelParticipant | UpdateBotStopped | UpdateGroupCallConnection | UpdateBotCommands | UpdatePendingJoinRequests | UpdateBotChatInviteRequester | UpdateMessageReactions | UpdateAttachMenuBots | UpdateWebViewResultSent | UpdateBotMenuButton | UpdateSavedRingtones | UpdateTranscribedAudio | UpdateReadFeaturedEmojiStickers | UpdateUserEmojiStatus | UpdateRecentEmojiStatuses | UpdateRecentReactions | UpdateMoveStickerSetToTop | UpdateMessageExtendedMedia | UpdateUser | UpdateAutoSaveSettings | UpdateStory | UpdateReadStories | UpdateStoryID | UpdateStoriesStealthMode | UpdateSentStoryReaction | UpdateBotChatBoost | UpdateChannelViewForumAsMessages | UpdatePeerWallpaper | UpdateBotMessageReaction | UpdateBotMessageReactions | UpdateSavedDialogPinned | UpdatePinnedSavedDialogs | UpdateSavedReactionTags | UpdateSmsJob | UpdateQuickReplies | UpdateNewQuickReply | UpdateDeleteQuickReply | UpdateQuickReplyMessage | UpdateDeleteQuickReplyMessages | UpdateBotBusinessConnect | UpdateBotNewBusinessMessage | UpdateBotEditBusinessMessage | UpdateBotDeleteBusinessMessage | UpdateNewStoryReaction | UpdateStarsBalance | UpdateBusinessBotCallbackQuery | UpdateStarsRevenueStatus | UpdateBotPurchasedPaidMedia | UpdatePaidReactionPrivacy | UpdateSentPhoneCode | UpdateGroupCallChainBlocks | UpdateReadMonoForumInbox | UpdateReadMonoForumOutbox | UpdateMonoForumNoPaidException | UpdateGroupCallMessage | UpdateGroupCallEncryptedMessage | UpdatePinnedForumTopic | UpdatePinnedForumTopics | UpdateDeleteGroupCallMessages | UpdateStarGiftAuctionState | UpdateStarGiftAuctionUserState | UpdateEmojiGameInfo | UpdateStarGiftCraftFail | UpdateChatParticipantRank | UpdateManagedBot | UpdateBotGuestChatQuery | UpdateAiComposeTones | UpdateJoinChatWebViewDecision | UpdateNewBotConnection | UpdateWebBrowserSettings | UpdateWebBrowserException | UpdateNewEphemeralMessage | UpdateDeleteEphemeralMessages | UpdateEditEphemeralMessage | UpdateEphemeralBotCallbackQuery | UpdateBotStarsSubscription | UpdateWalletState | UpdateSentWalletTransaction | UpdateWalletGaslessInfo | UpdateWalletTonConnectSession | UpdateWalletTonConnectPendingDisconnect;
+  export type TypeUpdate = UpdateNewMessage | UpdateMessageID | UpdateDeleteMessages | UpdateUserTyping | UpdateChatUserTyping | UpdateChatParticipants | UpdateUserStatus | UpdateUserName | UpdateNewAuthorization | UpdateNewEncryptedMessage | UpdateEncryptedChatTyping | UpdateEncryption | UpdateEncryptedMessagesRead | UpdateChatParticipantAdd | UpdateChatParticipantDelete | UpdateDcOptions | UpdateNotifySettings | UpdateServiceNotification | UpdatePrivacy | UpdateUserPhone | UpdateReadHistoryInbox | UpdateReadHistoryOutbox | UpdateWebPage | UpdateReadMessagesContents | UpdateChannelTooLong | UpdateChannel | UpdateNewChannelMessage | UpdateReadChannelInbox | UpdateDeleteChannelMessages | UpdateChannelMessageViews | UpdateChatParticipantAdmin | UpdateNewStickerSet | UpdateStickerSetsOrder | UpdateStickerSets | UpdateSavedGifs | UpdateBotInlineQuery | UpdateBotInlineSend | UpdateEditChannelMessage | UpdateBotCallbackQuery | UpdateEditMessage | UpdateInlineBotCallbackQuery | UpdateReadChannelOutbox | UpdateDraftMessage | UpdateReadFeaturedStickers | UpdateRecentStickers | UpdateConfig | UpdatePtsChanged | UpdateChannelWebPage | UpdateDialogPinned | UpdatePinnedDialogs | UpdateBotWebhookJSON | UpdateBotWebhookJSONQuery | UpdateBotShippingQuery | UpdateBotPrecheckoutQuery | UpdatePhoneCall | UpdateLangPackTooLong | UpdateLangPack | UpdateFavedStickers | UpdateChannelReadMessagesContents | UpdateContactsReset | UpdateChannelAvailableMessages | UpdateDialogUnreadMark | UpdateMessagePoll | UpdateChatDefaultBannedRights | UpdateFolderPeers | UpdatePeerSettings | UpdatePeerLocated | UpdateNewScheduledMessage | UpdateDeleteScheduledMessages | UpdateTheme | UpdateGeoLiveViewed | UpdateLoginToken | UpdateMessagePollVote | UpdateDialogFilter | UpdateDialogFilterOrder | UpdateDialogFilters | UpdatePhoneCallSignalingData | UpdateChannelMessageForwards | UpdateReadChannelDiscussionInbox | UpdateReadChannelDiscussionOutbox | UpdatePeerBlocked | UpdateChannelUserTyping | UpdatePinnedMessages | UpdatePinnedChannelMessages | UpdateChat | UpdateGroupCallParticipants | UpdateGroupCall | UpdatePeerHistoryTTL | UpdateChatParticipant | UpdateChannelParticipant | UpdateBotStopped | UpdateGroupCallConnection | UpdateBotCommands | UpdatePendingJoinRequests | UpdateBotChatInviteRequester | UpdateMessageReactions | UpdateAttachMenuBots | UpdateWebViewResultSent | UpdateBotMenuButton | UpdateSavedRingtones | UpdateTranscribedAudio | UpdateReadFeaturedEmojiStickers | UpdateUserEmojiStatus | UpdateRecentEmojiStatuses | UpdateRecentReactions | UpdateMoveStickerSetToTop | UpdateMessageExtendedMedia | UpdateUser | UpdateAutoSaveSettings | UpdateStory | UpdateReadStories | UpdateStoryID | UpdateStoriesStealthMode | UpdateSentStoryReaction | UpdateBotChatBoost | UpdateChannelViewForumAsMessages | UpdatePeerWallpaper | UpdateBotMessageReaction | UpdateBotMessageReactions | UpdateSavedDialogPinned | UpdatePinnedSavedDialogs | UpdateSavedReactionTags | UpdateSmsJob | UpdateQuickReplies | UpdateNewQuickReply | UpdateDeleteQuickReply | UpdateQuickReplyMessage | UpdateDeleteQuickReplyMessages | UpdateBotBusinessConnect | UpdateBotNewBusinessMessage | UpdateBotEditBusinessMessage | UpdateBotDeleteBusinessMessage | UpdateNewStoryReaction | UpdateStarsBalance | UpdateBusinessBotCallbackQuery | UpdateStarsRevenueStatus | UpdateBotPurchasedPaidMedia | UpdatePaidReactionPrivacy | UpdateSentPhoneCode | UpdateGroupCallChainBlocks | UpdateReadMonoForumInbox | UpdateReadMonoForumOutbox | UpdateMonoForumNoPaidException | UpdateGroupCallMessage | UpdateGroupCallEncryptedMessage | UpdatePinnedForumTopic | UpdatePinnedForumTopics | UpdateDeleteGroupCallMessages | UpdateStarGiftAuctionState | UpdateStarGiftAuctionUserState | UpdateEmojiGameInfo | UpdateStarGiftCraftFail | UpdateChatParticipantRank | UpdateManagedBot | UpdateBotGuestChatQuery | UpdateAiComposeTones | UpdateJoinChatWebViewDecision | UpdateNewBotConnection | UpdateWebBrowserSettings | UpdateWebBrowserException | UpdateNewEphemeralMessage | UpdateDeleteEphemeralMessages | UpdateEditEphemeralMessage | UpdateEphemeralBotCallbackQuery | UpdateBotStarsSubscription | UpdateWalletState | UpdateSentWalletTransaction | UpdateWalletGaslessInfo | UpdateWalletTonConnectSession | UpdateWalletTonConnectPendingDisconnect | UpdatePostID | UpdateNewPost | UpdateEditPost | UpdateDeletePosts | UpdateReadFeed | UpdatePostReplyDraft | UpdatePostReactions | UpdateUserExtra | UpdateActivity | UpdateActivityRead | UpdateFeedTab | UpdateFeedTabsOrder | UpdateFeedPost | UpdateFeedForYouBatch | UpdateFeedTabs | UpdateAudienceLists;
   export type TypeUpdates = UpdatesTooLong | UpdateShortMessage | UpdateShortChatMessage | UpdateShort | UpdatesCombined | Updates | UpdateShortSentMessage;
   export type TypeDcOption = DcOption;
   export type TypeConfig = Config;
@@ -99,8 +99,8 @@ namespace Api {
   export type TypeSendMessageAction = SendMessageTypingAction | SendMessageCancelAction | SendMessageRecordVideoAction | SendMessageUploadVideoAction | SendMessageRecordAudioAction | SendMessageUploadAudioAction | SendMessageUploadPhotoAction | SendMessageUploadDocumentAction | SendMessageGeoLocationAction | SendMessageChooseContactAction | SendMessageGamePlayAction | SendMessageRecordRoundAction | SendMessageUploadRoundAction | SpeakingInGroupCallAction | SendMessageHistoryImportAction | SendMessageChooseStickerAction | SendMessageEmojiInteraction | SendMessageEmojiInteractionSeen | SendMessageTextDraftAction | InputSendMessageRichMessageDraftAction | SendMessageRichMessageDraftAction | SendMessageStopDraftAction;
   export type TypeInputPrivacyKey = InputPrivacyKeyStatusTimestamp | InputPrivacyKeyChatInvite | InputPrivacyKeyPhoneCall | InputPrivacyKeyPhoneP2P | InputPrivacyKeyForwards | InputPrivacyKeyProfilePhoto | InputPrivacyKeyPhoneNumber | InputPrivacyKeyAddedByPhone | InputPrivacyKeyVoiceMessages | InputPrivacyKeyAbout | InputPrivacyKeyBirthday | InputPrivacyKeyStarGiftsAutoSave | InputPrivacyKeyNoPaidMessages | InputPrivacyKeySavedMusic;
   export type TypePrivacyKey = PrivacyKeyStatusTimestamp | PrivacyKeyChatInvite | PrivacyKeyPhoneCall | PrivacyKeyPhoneP2P | PrivacyKeyForwards | PrivacyKeyProfilePhoto | PrivacyKeyPhoneNumber | PrivacyKeyAddedByPhone | PrivacyKeyVoiceMessages | PrivacyKeyAbout | PrivacyKeyBirthday | PrivacyKeyStarGiftsAutoSave | PrivacyKeyNoPaidMessages | PrivacyKeySavedMusic;
-  export type TypeInputPrivacyRule = InputPrivacyValueAllowContacts | InputPrivacyValueAllowAll | InputPrivacyValueAllowUsers | InputPrivacyValueDisallowContacts | InputPrivacyValueDisallowAll | InputPrivacyValueDisallowUsers | InputPrivacyValueAllowChatParticipants | InputPrivacyValueDisallowChatParticipants | InputPrivacyValueAllowCloseFriends | InputPrivacyValueAllowPremium | InputPrivacyValueAllowBots | InputPrivacyValueDisallowBots;
-  export type TypePrivacyRule = PrivacyValueAllowContacts | PrivacyValueAllowAll | PrivacyValueAllowUsers | PrivacyValueDisallowContacts | PrivacyValueDisallowAll | PrivacyValueDisallowUsers | PrivacyValueAllowChatParticipants | PrivacyValueDisallowChatParticipants | PrivacyValueAllowCloseFriends | PrivacyValueAllowPremium | PrivacyValueAllowBots | PrivacyValueDisallowBots;
+  export type TypeInputPrivacyRule = InputPrivacyValueAllowContacts | InputPrivacyValueAllowAll | InputPrivacyValueAllowUsers | InputPrivacyValueDisallowContacts | InputPrivacyValueDisallowAll | InputPrivacyValueDisallowUsers | InputPrivacyValueAllowChatParticipants | InputPrivacyValueDisallowChatParticipants | InputPrivacyValueAllowCloseFriends | InputPrivacyValueAllowPremium | InputPrivacyValueAllowBots | InputPrivacyValueDisallowBots | InputPrivacyValueAllowFollowers | InputPrivacyValueAllowAudienceLists;
+  export type TypePrivacyRule = PrivacyValueAllowContacts | PrivacyValueAllowAll | PrivacyValueAllowUsers | PrivacyValueDisallowContacts | PrivacyValueDisallowAll | PrivacyValueDisallowUsers | PrivacyValueAllowChatParticipants | PrivacyValueDisallowChatParticipants | PrivacyValueAllowCloseFriends | PrivacyValueAllowPremium | PrivacyValueAllowBots | PrivacyValueDisallowBots | PrivacyValueAllowFollowers | PrivacyValueAllowAudienceLists;
   export type TypeAccountDaysTTL = AccountDaysTTL;
   export type TypeDocumentAttribute = DocumentAttributeImageSize | DocumentAttributeAnimated | DocumentAttributeSticker | DocumentAttributeVideo | DocumentAttributeAudio | DocumentAttributeFilename | DocumentAttributeHasStickers | DocumentAttributeCustomEmoji;
   export type TypeStickerPack = StickerPack;
@@ -116,7 +116,7 @@ namespace Api {
   export type TypeKeyboardButton = KeyboardButton;
   export type TypeKeyboardButtonRow = KeyboardButtonRow;
   export type TypeReplyMarkup = ReplyKeyboardHide | ReplyKeyboardForceReply | ReplyKeyboardMarkup | ReplyInlineMarkup;
-  export type TypeMessageEntity = MessageEntityUnknown | MessageEntityMention | MessageEntityHashtag | MessageEntityBotCommand | MessageEntityUrl | MessageEntityEmail | MessageEntityBold | MessageEntityItalic | MessageEntityCode | MessageEntityPre | MessageEntityTextUrl | MessageEntityMentionName | InputMessageEntityMentionName | MessageEntityPhone | MessageEntityCashtag | MessageEntityUnderline | MessageEntityStrike | MessageEntityBankCard | MessageEntitySpoiler | MessageEntityCustomEmoji | MessageEntityBlockquote | MessageEntityFormattedDate | MessageEntityDiffInsert | MessageEntityDiffReplace | MessageEntityDiffDelete | MessageEntityTonAddress;
+  export type TypeMessageEntity = MessageEntityUnknown | MessageEntityMention | MessageEntityHashtag | MessageEntityBotCommand | MessageEntityUrl | MessageEntityEmail | MessageEntityBold | MessageEntityItalic | MessageEntityCode | MessageEntityPre | MessageEntityTextUrl | MessageEntityMentionName | InputMessageEntityMentionName | MessageEntityPhone | MessageEntityCashtag | MessageEntityUnderline | MessageEntityStrike | MessageEntityBankCard | MessageEntitySpoiler | MessageEntityCustomEmoji | MessageEntityBlockquote | MessageEntityFormattedDate | MessageEntityDiffInsert | MessageEntityDiffReplace | MessageEntityDiffDelete | MessageEntityTonAddress | MessageEntityHighlight | MessageEntityFontSize;
   export type TypeInputChannel = InputChannelEmpty | InputChannel | InputChannelFromMessage;
   export type TypeMessageRange = MessageRange;
   export type TypeChannelMessagesFilter = ChannelMessagesFilterEmpty | ChannelMessagesFilter;
@@ -277,7 +277,7 @@ namespace Api {
   export type TypeNotificationSound = NotificationSoundDefault | NotificationSoundNone | NotificationSoundLocal | NotificationSoundRingtone;
   export type TypeAttachMenuPeerType = AttachMenuPeerTypeSameBotPM | AttachMenuPeerTypeBotPM | AttachMenuPeerTypePM | AttachMenuPeerTypeChat | AttachMenuPeerTypeBroadcast;
   export type TypeInputInvoice = InputInvoiceMessage | InputInvoiceSlug | InputInvoicePremiumGiftCode | InputInvoiceStars | InputInvoiceChatInviteSubscription | InputInvoiceStarGift | InputInvoiceStarGiftUpgrade | InputInvoiceStarGiftTransfer | InputInvoicePremiumGiftStars | InputInvoiceBusinessBotTransferStars | InputInvoiceStarGiftResale | InputInvoiceStarGiftPrepaidUpgrade | InputInvoicePremiumAuthCode | InputInvoiceStarGiftDropOriginalDetails | InputInvoiceStarGiftAuctionBid;
-  export type TypeInputStorePaymentPurpose = InputStorePaymentPremiumSubscription | InputStorePaymentGiftPremium | InputStorePaymentPremiumGiftCode | InputStorePaymentPremiumGiveaway | InputStorePaymentStarsTopup | InputStorePaymentStarsGift | InputStorePaymentStarsGiveaway | InputStorePaymentAuthCode;
+  export type TypeInputStorePaymentPurpose = InputStorePaymentPremiumSubscription | InputStorePaymentGiftPremium | InputStorePaymentPremiumGiftCode | InputStorePaymentPremiumGiveaway | InputStorePaymentStarsTopup | InputStorePaymentStarsGift | InputStorePaymentStarsGiveaway | InputStorePaymentAuthCode | InputStorePaymentStreakRestore;
   export type TypePaymentFormMethod = PaymentFormMethod;
   export type TypeEmojiStatus = EmojiStatusEmpty | EmojiStatus | EmojiStatusCollectible | InputEmojiStatusCollectible;
   export type TypeReaction = ReactionEmpty | ReactionEmoji | ReactionCustomEmoji | ReactionPaid;
@@ -307,12 +307,12 @@ namespace Api {
   export type TypeMessagePeerVote = MessagePeerVote | MessagePeerVoteInputOption | MessagePeerVoteMultiple;
   export type TypeStoryViews = StoryViews;
   export type TypeStoryItem = StoryItemDeleted | StoryItemSkipped | StoryItem;
-  export type TypeStoryView = StoryView | StoryViewPublicForward | StoryViewPublicRepost;
+  export type TypeStoryView = StoryView | StoryViewPublicForward | StoryViewPublicRepost | StoryViewPublicPost;
   export type TypeInputReplyTo = InputReplyToMessage | InputReplyToStory | InputReplyToMonoForum | InputReplyToEphemeralMessage;
   export type TypeExportedStoryLink = ExportedStoryLink;
   export type TypeStoriesStealthMode = StoriesStealthMode;
   export type TypeMediaAreaCoordinates = MediaAreaCoordinates;
-  export type TypeMediaArea = MediaAreaVenue | InputMediaAreaVenue | MediaAreaGeoPoint | MediaAreaSuggestedReaction | MediaAreaChannelPost | InputMediaAreaChannelPost | MediaAreaUrl | MediaAreaWeather | MediaAreaStarGift;
+  export type TypeMediaArea = MediaAreaVenue | InputMediaAreaVenue | MediaAreaGeoPoint | MediaAreaSuggestedReaction | MediaAreaChannelPost | InputMediaAreaChannelPost | MediaAreaUrl | MediaAreaWeather | MediaAreaStarGift | MediaAreaPost;
   export type TypePeerStories = PeerStories;
   export type TypePremiumGiftCodeOption = PremiumGiftCodeOption;
   export type TypePrepaidGiveaway = PrepaidGiveaway | PrepaidStarsGiveaway;
@@ -460,6 +460,44 @@ namespace Api {
   export type TypeShareThemeBackdropOption = ShareThemeBackdropOption;
   export type TypeShareThemeBackdrops = ShareThemeBackdropsNotModified | ShareThemeBackdrops;
   export type TypeInputWalletCardSticker = InputWalletCardSticker;
+  export type TypePost = Post | PostDeleted;
+  export type TypePostRef = PostRefPost | PostRefStory;
+  export type TypeInputPostRef = InputPostRefPost | InputPostRefStory;
+  export type TypePostPlace = PostPlace;
+  export type TypeInputPostPlace = InputPostPlace;
+  export type TypePostAttachment = PostAttachmentBook | PostAttachmentMovie | PostAttachmentMusic;
+  export type TypeInputPostAttachment = InputPostAttachment;
+  export type TypePostReplyPrivacy = PostReplyPrivacyEveryone | PostReplyPrivacyFollowers | PostReplyPrivacyMentioned | PostReplyPrivacyNobody;
+  export type TypePostViews = PostViews;
+  export type TypePostViewer = PostViewer;
+  export type TypeInputPostContent = InputPostContent;
+  export type TypeProfilePosts = ProfilePostsAll | ProfilePostsReplies | ProfilePostsShares | ProfilePostsMedia;
+  export type TypeExportedPostLink = ExportedPostLink;
+  export type TypeSummarySource = SummarySourceUser | SummarySourceTopic | SummarySourceHashtag;
+  export type TypePostTopic = PostTopic;
+  export type TypeInputPostTopic = InputPostTopic | InputPostTopicNew;
+  export type TypePostHashtag = PostHashtag;
+  export type TypeFeedTab = FeedTabForYou | FeedTabFollowing | FeedTabTopic | FeedTabHashtag;
+  export type TypeUserExtra = UserExtra;
+  export type TypeFollowRelationship = FollowRelationship;
+  export type TypeFollowRow = FollowRow;
+  export type TypeProfileStatus = ProfileStatus;
+  export type TypeStatusReaction = StatusReaction;
+  export type TypeStreak = Streak;
+  export type TypeStreakRestore = StreakRestore;
+  export type TypeProfileBan = ProfileBan;
+  export type TypeAudienceList = AudienceList;
+  export type TypeActivityRow = ActivityRow;
+  export type TypeActivityKind = ActivityKindPostReply | ActivityKindMention | ActivityKindPostShared | ActivityKindPostReaction | ActivityKindFollow | ActivityKindFollowRequest | ActivityKindFollowRequestAccepted | ActivityKindFollowerPost | ActivityKindStoryReply | ActivityKindStoryMention | ActivityKindStoryReaction | ActivityKindStoryShared | ActivityKindStoryPosted | ActivityKindStoryReposted | ActivityKindPostSharedToStory | ActivityKindPoke | ActivityKindStatusUpdated | ActivityKindStatusReaction | ActivityKindScheduledPostPublished | ActivityKindScheduledPostFailed | ActivityKindStreakExpiring | ActivityKindSystem;
+  export type TypeActivityTarget = ActivityTargetPost | ActivityTargetReply | ActivityTargetStory | ActivityTargetStatus | ActivityTargetScheduledPost;
+  export type TypeActivityFilter = ActivityFilterAll | ActivityFilterMentions | ActivityFilterFollows;
+  export type TypeActivityInteractor = ActivityInteractor;
+  export type TypeActivitySettings = ActivitySettings;
+  export type TypeStoryExtra = StoryExtra;
+  export type TypeInputStoryExtra = InputStoryExtra;
+  export type TypeStoryCapture = StoryCapture;
+  export type TypeConfirmPurpose = ConfirmPurposeEmailChange | ConfirmPurposeDeletion;
+  export type TypeAccountState = AccountState;
   export type TypeResPQ = ResPQ;
   export type TypeP_Q_inner_data = PQInnerData | PQInnerDataDc | PQInnerDataTemp | PQInnerDataTempDc;
   export type TypeServer_DH_Params = ServerDHParamsFail | ServerDHParamsOk;
@@ -807,6 +845,39 @@ namespace Api {
     export type TypeNftItems = wallet.NftItems;
     export type TypeCardSticker = wallet.CardSticker;
     export type TypeCard = wallet.Card;
+  }
+
+  export namespace posts {
+    export type TypePosts = posts.FeedNotModified | posts.Posts;
+    export type TypePostViewers = posts.PostViewers;
+    export type TypeFeedTabs = posts.FeedTabs;
+  }
+
+  export namespace topics {
+    export type TypeTopics = topics.Topics;
+  }
+
+  export namespace follows {
+    export type TypeUsers = follows.Users;
+  }
+
+  export namespace statuses {
+    export type TypeReactions = statuses.Reactions;
+  }
+
+  export namespace profiles {
+    export type TypeProfile = profiles.Profile;
+    export type TypeConfirmToken = profiles.ConfirmToken;
+    export type TypeDeletion = profiles.Deletion;
+  }
+
+  export namespace activity {
+    export type TypeRows = activity.Rows;
+    export type TypeSummary = activity.Summary;
+  }
+
+  export namespace emailauth {
+    export type TypeLegacyPassword = emailauth.LegacyPassword;
   }
 
   export class InputPeerEmpty extends VirtualClass<void> {
@@ -20847,6 +20918,1397 @@ namespace Api {
 
     static fromReader(reader: Reader): InputWalletCardSticker;
   }
+  export class Post extends VirtualClass<{
+    // flags: Api.Type;
+    out?: true;
+    pinned?: true;
+    edited?: true;
+    noforwards?: true;
+    bookmarked?: true;
+    archived?: true;
+    draft?: true;
+    min?: true;
+    silent?: true;
+    id: long;
+    fromId: Api.TypePeer;
+    date: int;
+    replyTo?: Api.TypePostRef;
+    text?: string;
+    entities?: Api.TypeMessageEntity[];
+    media?: Api.TypeMessageMedia[];
+    place?: Api.TypePostPlace;
+    rating?: int;
+    attachments?: Api.TypePostAttachment[];
+    topicId?: long;
+    privacy?: Api.TypePrivacyRule[];
+    replyPrivacy?: Api.TypePostReplyPrivacy;
+    repliesCount?: int;
+    sharesCount?: int;
+    reactions?: Api.TypeMessageReactions;
+    views?: Api.TypePostViews;
+    ttlPeriod?: int;
+    editDate?: int;
+    newTopicTitle?: string;
+    scheduleError?: string;
+  }> {
+    // flags: Api.Type;
+    out?: true;
+    pinned?: true;
+    edited?: true;
+    noforwards?: true;
+    bookmarked?: true;
+    archived?: true;
+    draft?: true;
+    min?: true;
+    silent?: true;
+    id: long;
+    fromId: Api.TypePeer;
+    date: int;
+    replyTo?: Api.TypePostRef;
+    text?: string;
+    entities?: Api.TypeMessageEntity[];
+    media?: Api.TypeMessageMedia[];
+    place?: Api.TypePostPlace;
+    rating?: int;
+    attachments?: Api.TypePostAttachment[];
+    topicId?: long;
+    privacy?: Api.TypePrivacyRule[];
+    replyPrivacy?: Api.TypePostReplyPrivacy;
+    repliesCount?: int;
+    sharesCount?: int;
+    reactions?: Api.TypeMessageReactions;
+    views?: Api.TypePostViews;
+    ttlPeriod?: int;
+    editDate?: int;
+    newTopicTitle?: string;
+    scheduleError?: string;
+    CONSTRUCTOR_ID: 1473598316;
+    SUBCLASS_OF_ID: 4206412723;
+    className: 'Post';
+
+    static fromReader(reader: Reader): Post;
+  }
+  export class PostDeleted extends VirtualClass<{
+    id: long;
+  }> {
+    id: long;
+    CONSTRUCTOR_ID: 3832431280;
+    SUBCLASS_OF_ID: 4206412723;
+    className: 'PostDeleted';
+
+    static fromReader(reader: Reader): PostDeleted;
+  }
+  export class PostRefPost extends VirtualClass<{
+    id: long;
+  }> {
+    id: long;
+    CONSTRUCTOR_ID: 1469351849;
+    SUBCLASS_OF_ID: 3461842883;
+    className: 'PostRefPost';
+
+    static fromReader(reader: Reader): PostRefPost;
+  }
+  export class PostRefStory extends VirtualClass<{
+    // flags: Api.Type;
+    peer: Api.TypePeer;
+    storyId: int;
+    story?: Api.TypeStoryItem;
+  }> {
+    // flags: Api.Type;
+    peer: Api.TypePeer;
+    storyId: int;
+    story?: Api.TypeStoryItem;
+    CONSTRUCTOR_ID: 3158882598;
+    SUBCLASS_OF_ID: 3461842883;
+    className: 'PostRefStory';
+
+    static fromReader(reader: Reader): PostRefStory;
+  }
+  export class InputPostRefPost extends VirtualClass<{
+    id: long;
+  }> {
+    id: long;
+    CONSTRUCTOR_ID: 2135112920;
+    SUBCLASS_OF_ID: 3823186661;
+    className: 'InputPostRefPost';
+
+    static fromReader(reader: Reader): InputPostRefPost;
+  }
+  export class InputPostRefStory extends VirtualClass<{
+    peer: Api.TypeInputPeer;
+    storyId: int;
+  }> {
+    peer: Api.TypeInputPeer;
+    storyId: int;
+    CONSTRUCTOR_ID: 3179648838;
+    SUBCLASS_OF_ID: 3823186661;
+    className: 'InputPostRefStory';
+
+    static fromReader(reader: Reader): InputPostRefStory;
+  }
+  export class MessageEntityHighlight extends VirtualClass<{
+    offset: int;
+    length: int;
+    color: string;
+  }> {
+    offset: int;
+    length: int;
+    color: string;
+    CONSTRUCTOR_ID: 2033919651;
+    SUBCLASS_OF_ID: 3479443932;
+    className: 'MessageEntityHighlight';
+
+    static fromReader(reader: Reader): MessageEntityHighlight;
+  }
+  export class MessageEntityFontSize extends VirtualClass<{
+    offset: int;
+    length: int;
+    size: string;
+  }> {
+    offset: int;
+    length: int;
+    size: string;
+    CONSTRUCTOR_ID: 3086423729;
+    SUBCLASS_OF_ID: 3479443932;
+    className: 'MessageEntityFontSize';
+
+    static fromReader(reader: Reader): MessageEntityFontSize;
+  }
+  export class MessageMediaPost extends VirtualClass<{
+    // flags: Api.Type;
+    postId: long;
+    post?: Api.TypePost;
+  }> {
+    // flags: Api.Type;
+    postId: long;
+    post?: Api.TypePost;
+    CONSTRUCTOR_ID: 3025045980;
+    SUBCLASS_OF_ID: 1198308914;
+    className: 'MessageMediaPost';
+
+    static fromReader(reader: Reader): MessageMediaPost;
+  }
+  export class InputMediaPost extends VirtualClass<{
+    id: long;
+  }> {
+    id: long;
+    CONSTRUCTOR_ID: 3590496197;
+    SUBCLASS_OF_ID: 4210575092;
+    className: 'InputMediaPost';
+
+    static fromReader(reader: Reader): InputMediaPost;
+  }
+  export class PostPlace extends VirtualClass<{
+    // flags: Api.Type;
+    geo: Api.TypeGeoPoint;
+    title: string;
+    address: string;
+    city?: string;
+    region?: string;
+    venueType: string;
+  }> {
+    // flags: Api.Type;
+    geo: Api.TypeGeoPoint;
+    title: string;
+    address: string;
+    city?: string;
+    region?: string;
+    venueType: string;
+    CONSTRUCTOR_ID: 421709988;
+    SUBCLASS_OF_ID: 2740840826;
+    className: 'PostPlace';
+
+    static fromReader(reader: Reader): PostPlace;
+  }
+  export class InputPostPlace extends VirtualClass<{
+    // flags: Api.Type;
+    geo: Api.TypeInputGeoPoint;
+    title: string;
+    address: string;
+    city?: string;
+    region?: string;
+    venueType: string;
+  }> {
+    // flags: Api.Type;
+    geo: Api.TypeInputGeoPoint;
+    title: string;
+    address: string;
+    city?: string;
+    region?: string;
+    venueType: string;
+    CONSTRUCTOR_ID: 305072780;
+    SUBCLASS_OF_ID: 3683123435;
+    className: 'InputPostPlace';
+
+    static fromReader(reader: Reader): InputPostPlace;
+  }
+  export class PostAttachmentBook extends VirtualClass<{
+    // flags: Api.Type;
+    id: string;
+    title: string;
+    authors: string[];
+    cover?: Api.TypeWebDocument;
+  }> {
+    // flags: Api.Type;
+    id: string;
+    title: string;
+    authors: string[];
+    cover?: Api.TypeWebDocument;
+    CONSTRUCTOR_ID: 2006076796;
+    SUBCLASS_OF_ID: 395607385;
+    className: 'PostAttachmentBook';
+
+    static fromReader(reader: Reader): PostAttachmentBook;
+  }
+  export class PostAttachmentMovie extends VirtualClass<{
+    // flags: Api.Type;
+    id: string;
+    title: string;
+    year: string;
+    poster?: Api.TypeWebDocument;
+  }> {
+    // flags: Api.Type;
+    id: string;
+    title: string;
+    year: string;
+    poster?: Api.TypeWebDocument;
+    CONSTRUCTOR_ID: 3795931855;
+    SUBCLASS_OF_ID: 395607385;
+    className: 'PostAttachmentMovie';
+
+    static fromReader(reader: Reader): PostAttachmentMovie;
+  }
+  export class PostAttachmentMusic extends VirtualClass<{
+    // flags: Api.Type;
+    id: string;
+    title: string;
+    performer: string;
+    album: string;
+    artwork?: Api.TypeWebDocument;
+    preview?: Api.TypeWebDocument;
+  }> {
+    // flags: Api.Type;
+    id: string;
+    title: string;
+    performer: string;
+    album: string;
+    artwork?: Api.TypeWebDocument;
+    preview?: Api.TypeWebDocument;
+    CONSTRUCTOR_ID: 4271329252;
+    SUBCLASS_OF_ID: 395607385;
+    className: 'PostAttachmentMusic';
+
+    static fromReader(reader: Reader): PostAttachmentMusic;
+  }
+  export class InputPostAttachment extends VirtualClass<{
+    queryId: long;
+    id: string;
+  }> {
+    queryId: long;
+    id: string;
+    CONSTRUCTOR_ID: 599240627;
+    SUBCLASS_OF_ID: 1008826734;
+    className: 'InputPostAttachment';
+
+    static fromReader(reader: Reader): InputPostAttachment;
+  }
+  export class PostReplyPrivacyEveryone extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 459396223;
+    SUBCLASS_OF_ID: 1098971475;
+    className: 'PostReplyPrivacyEveryone';
+
+    static fromReader(reader: Reader): PostReplyPrivacyEveryone;
+  }
+  export class PostReplyPrivacyFollowers extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3404810158;
+    SUBCLASS_OF_ID: 1098971475;
+    className: 'PostReplyPrivacyFollowers';
+
+    static fromReader(reader: Reader): PostReplyPrivacyFollowers;
+  }
+  export class PostReplyPrivacyMentioned extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2835362471;
+    SUBCLASS_OF_ID: 1098971475;
+    className: 'PostReplyPrivacyMentioned';
+
+    static fromReader(reader: Reader): PostReplyPrivacyMentioned;
+  }
+  export class PostReplyPrivacyNobody extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 890557827;
+    SUBCLASS_OF_ID: 1098971475;
+    className: 'PostReplyPrivacyNobody';
+
+    static fromReader(reader: Reader): PostReplyPrivacyNobody;
+  }
+  export class PostViews extends VirtualClass<{
+    // flags: Api.Type;
+    viewsCount: int;
+    recentViewers?: long[];
+  }> {
+    // flags: Api.Type;
+    viewsCount: int;
+    recentViewers?: long[];
+    CONSTRUCTOR_ID: 1681386004;
+    SUBCLASS_OF_ID: 3333432880;
+    className: 'PostViews';
+
+    static fromReader(reader: Reader): PostViews;
+  }
+  export class PostViewer extends VirtualClass<{
+    // flags: Api.Type;
+    userId: long;
+    date: int;
+    reaction?: Api.TypeReaction;
+  }> {
+    // flags: Api.Type;
+    userId: long;
+    date: int;
+    reaction?: Api.TypeReaction;
+    CONSTRUCTOR_ID: 2841599325;
+    SUBCLASS_OF_ID: 1452198592;
+    className: 'PostViewer';
+
+    static fromReader(reader: Reader): PostViewer;
+  }
+  export class InputPostContent extends VirtualClass<{
+    // flags: Api.Type;
+    text?: string;
+    entities?: Api.TypeMessageEntity[];
+    media?: Api.TypeInputMedia[];
+    place?: Api.TypeInputPostPlace;
+    rating?: int;
+    attachments?: Api.TypeInputPostAttachment[];
+    topic?: Api.TypeInputPostTopic;
+  } | void> {
+    // flags: Api.Type;
+    text?: string;
+    entities?: Api.TypeMessageEntity[];
+    media?: Api.TypeInputMedia[];
+    place?: Api.TypeInputPostPlace;
+    rating?: int;
+    attachments?: Api.TypeInputPostAttachment[];
+    topic?: Api.TypeInputPostTopic;
+    CONSTRUCTOR_ID: 4014984132;
+    SUBCLASS_OF_ID: 3480820822;
+    className: 'InputPostContent';
+
+    static fromReader(reader: Reader): InputPostContent;
+  }
+  export class ProfilePostsAll extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3563170172;
+    SUBCLASS_OF_ID: 3124801929;
+    className: 'ProfilePostsAll';
+
+    static fromReader(reader: Reader): ProfilePostsAll;
+  }
+  export class ProfilePostsReplies extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 4227285587;
+    SUBCLASS_OF_ID: 3124801929;
+    className: 'ProfilePostsReplies';
+
+    static fromReader(reader: Reader): ProfilePostsReplies;
+  }
+  export class ProfilePostsShares extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 1176955994;
+    SUBCLASS_OF_ID: 3124801929;
+    className: 'ProfilePostsShares';
+
+    static fromReader(reader: Reader): ProfilePostsShares;
+  }
+  export class ProfilePostsMedia extends VirtualClass<{
+    filter: Api.TypeMessagesFilter;
+  }> {
+    filter: Api.TypeMessagesFilter;
+    CONSTRUCTOR_ID: 3985536063;
+    SUBCLASS_OF_ID: 3124801929;
+    className: 'ProfilePostsMedia';
+
+    static fromReader(reader: Reader): ProfilePostsMedia;
+  }
+  export class ExportedPostLink extends VirtualClass<{
+    link: string;
+  }> {
+    link: string;
+    CONSTRUCTOR_ID: 2274107259;
+    SUBCLASS_OF_ID: 478737475;
+    className: 'ExportedPostLink';
+
+    static fromReader(reader: Reader): ExportedPostLink;
+  }
+  export class SummarySourceUser extends VirtualClass<{
+    userId: Api.TypeInputUser;
+  }> {
+    userId: Api.TypeInputUser;
+    CONSTRUCTOR_ID: 179718432;
+    SUBCLASS_OF_ID: 2382230066;
+    className: 'SummarySourceUser';
+
+    static fromReader(reader: Reader): SummarySourceUser;
+  }
+  export class SummarySourceTopic extends VirtualClass<{
+    topicId: long;
+  }> {
+    topicId: long;
+    CONSTRUCTOR_ID: 3095094891;
+    SUBCLASS_OF_ID: 2382230066;
+    className: 'SummarySourceTopic';
+
+    static fromReader(reader: Reader): SummarySourceTopic;
+  }
+  export class SummarySourceHashtag extends VirtualClass<{
+    // flags: Api.Type;
+    cashtag?: true;
+    tag: string;
+  }> {
+    // flags: Api.Type;
+    cashtag?: true;
+    tag: string;
+    CONSTRUCTOR_ID: 1071035532;
+    SUBCLASS_OF_ID: 2382230066;
+    className: 'SummarySourceHashtag';
+
+    static fromReader(reader: Reader): SummarySourceHashtag;
+  }
+  export class PostTopic extends VirtualClass<{
+    // flags: Api.Type;
+    closed?: true;
+    added?: true;
+    id: long;
+    title: string;
+    date: int;
+    postsCount: int;
+    postsWeekCount: int;
+    addedCount: int;
+    lastPostDate?: int;
+  }> {
+    // flags: Api.Type;
+    closed?: true;
+    added?: true;
+    id: long;
+    title: string;
+    date: int;
+    postsCount: int;
+    postsWeekCount: int;
+    addedCount: int;
+    lastPostDate?: int;
+    CONSTRUCTOR_ID: 393079997;
+    SUBCLASS_OF_ID: 1241539756;
+    className: 'PostTopic';
+
+    static fromReader(reader: Reader): PostTopic;
+  }
+  export class InputPostTopic extends VirtualClass<{
+    id: long;
+  }> {
+    id: long;
+    CONSTRUCTOR_ID: 838431095;
+    SUBCLASS_OF_ID: 852856125;
+    className: 'InputPostTopic';
+
+    static fromReader(reader: Reader): InputPostTopic;
+  }
+  export class InputPostTopicNew extends VirtualClass<{
+    title: string;
+  }> {
+    title: string;
+    CONSTRUCTOR_ID: 1024113667;
+    SUBCLASS_OF_ID: 852856125;
+    className: 'InputPostTopicNew';
+
+    static fromReader(reader: Reader): InputPostTopicNew;
+  }
+  export class PostHashtag extends VirtualClass<{
+    // flags: Api.Type;
+    added?: true;
+    cashtag?: true;
+    tag: string;
+    postsCount: int;
+    postsWeekCount: int;
+    addedCount: int;
+  }> {
+    // flags: Api.Type;
+    added?: true;
+    cashtag?: true;
+    tag: string;
+    postsCount: int;
+    postsWeekCount: int;
+    addedCount: int;
+    CONSTRUCTOR_ID: 1330696116;
+    SUBCLASS_OF_ID: 3666190284;
+    className: 'PostHashtag';
+
+    static fromReader(reader: Reader): PostHashtag;
+  }
+  export class FeedTabForYou extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2057703493;
+    SUBCLASS_OF_ID: 3019326787;
+    className: 'FeedTabForYou';
+
+    static fromReader(reader: Reader): FeedTabForYou;
+  }
+  export class FeedTabFollowing extends VirtualClass<{
+    id: int;
+  }> {
+    id: int;
+    CONSTRUCTOR_ID: 216761968;
+    SUBCLASS_OF_ID: 3019326787;
+    className: 'FeedTabFollowing';
+
+    static fromReader(reader: Reader): FeedTabFollowing;
+  }
+  export class FeedTabTopic extends VirtualClass<{
+    id: int;
+    topicId: long;
+  }> {
+    id: int;
+    topicId: long;
+    CONSTRUCTOR_ID: 3038509334;
+    SUBCLASS_OF_ID: 3019326787;
+    className: 'FeedTabTopic';
+
+    static fromReader(reader: Reader): FeedTabTopic;
+  }
+  export class FeedTabHashtag extends VirtualClass<{
+    // flags: Api.Type;
+    cashtag?: true;
+    id: int;
+    tag: string;
+  }> {
+    // flags: Api.Type;
+    cashtag?: true;
+    id: int;
+    tag: string;
+    CONSTRUCTOR_ID: 4174771781;
+    SUBCLASS_OF_ID: 3019326787;
+    className: 'FeedTabHashtag';
+
+    static fromReader(reader: Reader): FeedTabHashtag;
+  }
+  export class UserExtra extends VirtualClass<{
+    // flags: Api.Type;
+    private?: true;
+    banned?: true;
+    userId: long;
+    relationship: Api.TypeFollowRelationship;
+    status?: Api.TypeProfileStatus;
+    postsCount?: int;
+    streakCount?: int;
+  }> {
+    // flags: Api.Type;
+    private?: true;
+    banned?: true;
+    userId: long;
+    relationship: Api.TypeFollowRelationship;
+    status?: Api.TypeProfileStatus;
+    postsCount?: int;
+    streakCount?: int;
+    CONSTRUCTOR_ID: 1553615583;
+    SUBCLASS_OF_ID: 699112464;
+    className: 'UserExtra';
+
+    static fromReader(reader: Reader): UserExtra;
+  }
+  export class FollowRelationship extends VirtualClass<{
+    // flags: Api.Type;
+    following?: true;
+    followedBy?: true;
+    requested?: true;
+    requestReceived?: true;
+    blocked?: true;
+    mutedUntil?: int;
+  } | void> {
+    // flags: Api.Type;
+    following?: true;
+    followedBy?: true;
+    requested?: true;
+    requestReceived?: true;
+    blocked?: true;
+    mutedUntil?: int;
+    CONSTRUCTOR_ID: 1954934735;
+    SUBCLASS_OF_ID: 2701905167;
+    className: 'FollowRelationship';
+
+    static fromReader(reader: Reader): FollowRelationship;
+  }
+  export class FollowRow extends VirtualClass<{
+    // flags: Api.Type;
+    userId: long;
+    date: int;
+    until?: int;
+  }> {
+    // flags: Api.Type;
+    userId: long;
+    date: int;
+    until?: int;
+    CONSTRUCTOR_ID: 3689097368;
+    SUBCLASS_OF_ID: 3755746324;
+    className: 'FollowRow';
+
+    static fromReader(reader: Reader): FollowRow;
+  }
+  export class ProfileStatus extends VirtualClass<{
+    // flags: Api.Type;
+    id: long;
+    text: string;
+    date: int;
+    expireDate: int;
+    reactionsCount?: int;
+    myReaction?: Api.TypeReaction;
+  }> {
+    // flags: Api.Type;
+    id: long;
+    text: string;
+    date: int;
+    expireDate: int;
+    reactionsCount?: int;
+    myReaction?: Api.TypeReaction;
+    CONSTRUCTOR_ID: 2316709559;
+    SUBCLASS_OF_ID: 2990430353;
+    className: 'ProfileStatus';
+
+    static fromReader(reader: Reader): ProfileStatus;
+  }
+  export class StatusReaction extends VirtualClass<{
+    userId: long;
+    date: int;
+    reaction: Api.TypeReaction;
+  }> {
+    userId: long;
+    date: int;
+    reaction: Api.TypeReaction;
+    CONSTRUCTOR_ID: 4212592520;
+    SUBCLASS_OF_ID: 3965553537;
+    className: 'StatusReaction';
+
+    static fromReader(reader: Reader): StatusReaction;
+  }
+  export class Streak extends VirtualClass<{
+    // flags: Api.Type;
+    count: int;
+    breaksAt?: int;
+    restore?: Api.TypeStreakRestore;
+  }> {
+    // flags: Api.Type;
+    count: int;
+    breaksAt?: int;
+    restore?: Api.TypeStreakRestore;
+    CONSTRUCTOR_ID: 2596858695;
+    SUBCLASS_OF_ID: 505814559;
+    className: 'Streak';
+
+    static fromReader(reader: Reader): Streak;
+  }
+  export class StreakRestore extends VirtualClass<{
+    // flags: Api.Type;
+    includedInPremium?: true;
+    count: int;
+    startedAt: int;
+    brokeAt: int;
+    countAfter: int;
+    productId?: string;
+  }> {
+    // flags: Api.Type;
+    includedInPremium?: true;
+    count: int;
+    startedAt: int;
+    brokeAt: int;
+    countAfter: int;
+    productId?: string;
+    CONSTRUCTOR_ID: 2462564427;
+    SUBCLASS_OF_ID: 510092199;
+    className: 'StreakRestore';
+
+    static fromReader(reader: Reader): StreakRestore;
+  }
+  export class ProfileBan extends VirtualClass<{
+    // flags: Api.Type;
+    type: string;
+    until?: int;
+  }> {
+    // flags: Api.Type;
+    type: string;
+    until?: int;
+    CONSTRUCTOR_ID: 4137779781;
+    SUBCLASS_OF_ID: 3210035805;
+    className: 'ProfileBan';
+
+    static fromReader(reader: Reader): ProfileBan;
+  }
+  export class AudienceList extends VirtualClass<{
+    id: int;
+    title: string;
+    membersCount: int;
+  }> {
+    id: int;
+    title: string;
+    membersCount: int;
+    CONSTRUCTOR_ID: 2902931091;
+    SUBCLASS_OF_ID: 774161440;
+    className: 'AudienceList';
+
+    static fromReader(reader: Reader): AudienceList;
+  }
+  export class PrivacyValueAllowFollowers extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 1547560015;
+    SUBCLASS_OF_ID: 3954700912;
+    className: 'PrivacyValueAllowFollowers';
+
+    static fromReader(reader: Reader): PrivacyValueAllowFollowers;
+  }
+  export class PrivacyValueAllowAudienceLists extends VirtualClass<{
+    lists: int[];
+  }> {
+    lists: int[];
+    CONSTRUCTOR_ID: 631914626;
+    SUBCLASS_OF_ID: 3954700912;
+    className: 'PrivacyValueAllowAudienceLists';
+
+    static fromReader(reader: Reader): PrivacyValueAllowAudienceLists;
+  }
+  export class InputPrivacyValueAllowFollowers extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3841283109;
+    SUBCLASS_OF_ID: 1513843490;
+    className: 'InputPrivacyValueAllowFollowers';
+
+    static fromReader(reader: Reader): InputPrivacyValueAllowFollowers;
+  }
+  export class InputPrivacyValueAllowAudienceLists extends VirtualClass<{
+    lists: int[];
+  }> {
+    lists: int[];
+    CONSTRUCTOR_ID: 1428342830;
+    SUBCLASS_OF_ID: 1513843490;
+    className: 'InputPrivacyValueAllowAudienceLists';
+
+    static fromReader(reader: Reader): InputPrivacyValueAllowAudienceLists;
+  }
+  export class InputStorePaymentStreakRestore extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 430566226;
+    SUBCLASS_OF_ID: 3886290765;
+    className: 'InputStorePaymentStreakRestore';
+
+    static fromReader(reader: Reader): InputStorePaymentStreakRestore;
+  }
+  export class ActivityRow extends VirtualClass<{
+    // flags: Api.Type;
+    unread?: true;
+    id: long;
+    date: int;
+    kind: Api.TypeActivityKind;
+    actorIds: long[];
+    actorsCount: int;
+    target?: Api.TypeActivityTarget;
+    text?: Api.TypeTextWithEntities;
+    expireDate?: int;
+    eventsCount?: int;
+    reactions?: Api.TypeReactionCount[];
+  }> {
+    // flags: Api.Type;
+    unread?: true;
+    id: long;
+    date: int;
+    kind: Api.TypeActivityKind;
+    actorIds: long[];
+    actorsCount: int;
+    target?: Api.TypeActivityTarget;
+    text?: Api.TypeTextWithEntities;
+    expireDate?: int;
+    eventsCount?: int;
+    reactions?: Api.TypeReactionCount[];
+    CONSTRUCTOR_ID: 851261601;
+    SUBCLASS_OF_ID: 3714095690;
+    className: 'ActivityRow';
+
+    static fromReader(reader: Reader): ActivityRow;
+  }
+  export class ActivityKindPostReply extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 330724731;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindPostReply';
+
+    static fromReader(reader: Reader): ActivityKindPostReply;
+  }
+  export class ActivityKindMention extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2977266785;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindMention';
+
+    static fromReader(reader: Reader): ActivityKindMention;
+  }
+  export class ActivityKindPostShared extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2757976543;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindPostShared';
+
+    static fromReader(reader: Reader): ActivityKindPostShared;
+  }
+  export class ActivityKindPostReaction extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3894758181;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindPostReaction';
+
+    static fromReader(reader: Reader): ActivityKindPostReaction;
+  }
+  export class ActivityKindFollow extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 1258027930;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindFollow';
+
+    static fromReader(reader: Reader): ActivityKindFollow;
+  }
+  export class ActivityKindFollowRequest extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2918592583;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindFollowRequest';
+
+    static fromReader(reader: Reader): ActivityKindFollowRequest;
+  }
+  export class ActivityKindFollowRequestAccepted extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2963787715;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindFollowRequestAccepted';
+
+    static fromReader(reader: Reader): ActivityKindFollowRequestAccepted;
+  }
+  export class ActivityKindFollowerPost extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3297874180;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindFollowerPost';
+
+    static fromReader(reader: Reader): ActivityKindFollowerPost;
+  }
+  export class ActivityKindStoryReply extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2384915430;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStoryReply';
+
+    static fromReader(reader: Reader): ActivityKindStoryReply;
+  }
+  export class ActivityKindStoryMention extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2295108094;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStoryMention';
+
+    static fromReader(reader: Reader): ActivityKindStoryMention;
+  }
+  export class ActivityKindStoryReaction extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 35869899;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStoryReaction';
+
+    static fromReader(reader: Reader): ActivityKindStoryReaction;
+  }
+  export class ActivityKindStoryShared extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 708845240;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStoryShared';
+
+    static fromReader(reader: Reader): ActivityKindStoryShared;
+  }
+  export class ActivityKindStoryPosted extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3650141110;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStoryPosted';
+
+    static fromReader(reader: Reader): ActivityKindStoryPosted;
+  }
+  export class ActivityKindStoryReposted extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 1417840031;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStoryReposted';
+
+    static fromReader(reader: Reader): ActivityKindStoryReposted;
+  }
+  export class ActivityKindPostSharedToStory extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 4170235303;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindPostSharedToStory';
+
+    static fromReader(reader: Reader): ActivityKindPostSharedToStory;
+  }
+  export class ActivityKindPoke extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3375281572;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindPoke';
+
+    static fromReader(reader: Reader): ActivityKindPoke;
+  }
+  export class ActivityKindStatusUpdated extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 64955288;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStatusUpdated';
+
+    static fromReader(reader: Reader): ActivityKindStatusUpdated;
+  }
+  export class ActivityKindStatusReaction extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 1266039085;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStatusReaction';
+
+    static fromReader(reader: Reader): ActivityKindStatusReaction;
+  }
+  export class ActivityKindScheduledPostPublished extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 477208071;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindScheduledPostPublished';
+
+    static fromReader(reader: Reader): ActivityKindScheduledPostPublished;
+  }
+  export class ActivityKindScheduledPostFailed extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 1867869532;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindScheduledPostFailed';
+
+    static fromReader(reader: Reader): ActivityKindScheduledPostFailed;
+  }
+  export class ActivityKindStreakExpiring extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2378766051;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindStreakExpiring';
+
+    static fromReader(reader: Reader): ActivityKindStreakExpiring;
+  }
+  export class ActivityKindSystem extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2706267288;
+    SUBCLASS_OF_ID: 3163901799;
+    className: 'ActivityKindSystem';
+
+    static fromReader(reader: Reader): ActivityKindSystem;
+  }
+  export class ActivityTargetPost extends VirtualClass<{
+    postId: long;
+  }> {
+    postId: long;
+    CONSTRUCTOR_ID: 4212012156;
+    SUBCLASS_OF_ID: 412977213;
+    className: 'ActivityTargetPost';
+
+    static fromReader(reader: Reader): ActivityTargetPost;
+  }
+  export class ActivityTargetReply extends VirtualClass<{
+    postId: long;
+    replyId: long;
+  }> {
+    postId: long;
+    replyId: long;
+    CONSTRUCTOR_ID: 1348187716;
+    SUBCLASS_OF_ID: 412977213;
+    className: 'ActivityTargetReply';
+
+    static fromReader(reader: Reader): ActivityTargetReply;
+  }
+  export class ActivityTargetStory extends VirtualClass<{
+    peer: Api.TypePeer;
+    storyId: int;
+  }> {
+    peer: Api.TypePeer;
+    storyId: int;
+    CONSTRUCTOR_ID: 547655042;
+    SUBCLASS_OF_ID: 412977213;
+    className: 'ActivityTargetStory';
+
+    static fromReader(reader: Reader): ActivityTargetStory;
+  }
+  export class ActivityTargetStatus extends VirtualClass<{
+    statusId: long;
+  }> {
+    statusId: long;
+    CONSTRUCTOR_ID: 2674944533;
+    SUBCLASS_OF_ID: 412977213;
+    className: 'ActivityTargetStatus';
+
+    static fromReader(reader: Reader): ActivityTargetStatus;
+  }
+  export class ActivityTargetScheduledPost extends VirtualClass<{
+    id: long;
+  }> {
+    id: long;
+    CONSTRUCTOR_ID: 3057440798;
+    SUBCLASS_OF_ID: 412977213;
+    className: 'ActivityTargetScheduledPost';
+
+    static fromReader(reader: Reader): ActivityTargetScheduledPost;
+  }
+  export class ActivityFilterAll extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2566074716;
+    SUBCLASS_OF_ID: 557250780;
+    className: 'ActivityFilterAll';
+
+    static fromReader(reader: Reader): ActivityFilterAll;
+  }
+  export class ActivityFilterMentions extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 48624709;
+    SUBCLASS_OF_ID: 557250780;
+    className: 'ActivityFilterMentions';
+
+    static fromReader(reader: Reader): ActivityFilterMentions;
+  }
+  export class ActivityFilterFollows extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 315117781;
+    SUBCLASS_OF_ID: 557250780;
+    className: 'ActivityFilterFollows';
+
+    static fromReader(reader: Reader): ActivityFilterFollows;
+  }
+  export class ActivityInteractor extends VirtualClass<{
+    userId: long;
+    totalCount: int;
+    unreadCount: int;
+    repliesCount: int;
+    reactionsCount: int;
+    mentionsCount: int;
+    followsCount: int;
+    pokesCount: int;
+    lastKind: Api.TypeActivityKind;
+    lastDate: int;
+  }> {
+    userId: long;
+    totalCount: int;
+    unreadCount: int;
+    repliesCount: int;
+    reactionsCount: int;
+    mentionsCount: int;
+    followsCount: int;
+    pokesCount: int;
+    lastKind: Api.TypeActivityKind;
+    lastDate: int;
+    CONSTRUCTOR_ID: 1132835421;
+    SUBCLASS_OF_ID: 3614429622;
+    className: 'ActivityInteractor';
+
+    static fromReader(reader: Reader): ActivityInteractor;
+  }
+  export class ActivitySettings extends VirtualClass<{
+    // flags: Api.Type;
+    push?: true;
+    newPost?: true;
+    replies?: true;
+    reactions?: true;
+    follows?: true;
+    mentions?: true;
+    trendingPlaces?: true;
+    newsUpdates?: true;
+    statusUpdates?: true;
+    stories?: true;
+    storyReactions?: true;
+    storyReplies?: true;
+    statusReactions?: true;
+    shares?: true;
+    pokes?: true;
+    followRequests?: true;
+  } | void> {
+    // flags: Api.Type;
+    push?: true;
+    newPost?: true;
+    replies?: true;
+    reactions?: true;
+    follows?: true;
+    mentions?: true;
+    trendingPlaces?: true;
+    newsUpdates?: true;
+    statusUpdates?: true;
+    stories?: true;
+    storyReactions?: true;
+    storyReplies?: true;
+    statusReactions?: true;
+    shares?: true;
+    pokes?: true;
+    followRequests?: true;
+    CONSTRUCTOR_ID: 2850578950;
+    SUBCLASS_OF_ID: 2132160115;
+    className: 'ActivitySettings';
+
+    static fromReader(reader: Reader): ActivitySettings;
+  }
+  export class MediaAreaPost extends VirtualClass<{
+    coordinates: Api.TypeMediaAreaCoordinates;
+    postId: long;
+  }> {
+    coordinates: Api.TypeMediaAreaCoordinates;
+    postId: long;
+    CONSTRUCTOR_ID: 4209121877;
+    SUBCLASS_OF_ID: 4084038642;
+    className: 'MediaAreaPost';
+
+    static fromReader(reader: Reader): MediaAreaPost;
+  }
+  export class StoryViewPublicPost extends VirtualClass<{
+    // flags: Api.Type;
+    blocked?: true;
+    blockedMyStoriesFrom?: true;
+    post: Api.TypePost;
+  }> {
+    // flags: Api.Type;
+    blocked?: true;
+    blockedMyStoriesFrom?: true;
+    post: Api.TypePost;
+    CONSTRUCTOR_ID: 3918199754;
+    SUBCLASS_OF_ID: 898711459;
+    className: 'StoryViewPublicPost';
+
+    static fromReader(reader: Reader): StoryViewPublicPost;
+  }
+  export class StoryExtra extends VirtualClass<{
+    // flags: Api.Type;
+    canReply?: true;
+    id: int;
+    replyPrivacy: Api.TypePostReplyPrivacy;
+    repliesCount: int;
+  }> {
+    // flags: Api.Type;
+    canReply?: true;
+    id: int;
+    replyPrivacy: Api.TypePostReplyPrivacy;
+    repliesCount: int;
+    CONSTRUCTOR_ID: 787133831;
+    SUBCLASS_OF_ID: 137051524;
+    className: 'StoryExtra';
+
+    static fromReader(reader: Reader): StoryExtra;
+  }
+  export class InputStoryExtra extends VirtualClass<{
+    replyPrivacy: Api.TypePostReplyPrivacy;
+  }> {
+    replyPrivacy: Api.TypePostReplyPrivacy;
+    CONSTRUCTOR_ID: 2251037896;
+    SUBCLASS_OF_ID: 2405125055;
+    className: 'InputStoryExtra';
+
+    static fromReader(reader: Reader): InputStoryExtra;
+  }
+  export class StoryCapture extends VirtualClass<{
+    // flags: Api.Type;
+    userId: long;
+    screenshotDate?: int;
+    screenRecordingDate?: int;
+  }> {
+    // flags: Api.Type;
+    userId: long;
+    screenshotDate?: int;
+    screenRecordingDate?: int;
+    CONSTRUCTOR_ID: 4065128088;
+    SUBCLASS_OF_ID: 3930198512;
+    className: 'StoryCapture';
+
+    static fromReader(reader: Reader): StoryCapture;
+  }
+  export class ConfirmPurposeEmailChange extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 1857910008;
+    SUBCLASS_OF_ID: 4009583457;
+    className: 'ConfirmPurposeEmailChange';
+
+    static fromReader(reader: Reader): ConfirmPurposeEmailChange;
+  }
+  export class ConfirmPurposeDeletion extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3570378345;
+    SUBCLASS_OF_ID: 4009583457;
+    className: 'ConfirmPurposeDeletion';
+
+    static fromReader(reader: Reader): ConfirmPurposeDeletion;
+  }
+  export class AccountState extends VirtualClass<{
+    // flags: Api.Type;
+    lastActiveDate: int;
+    deactivatedDate?: int;
+    deletionRequestedDate?: int;
+    deletionDate?: int;
+    role?: string;
+  }> {
+    // flags: Api.Type;
+    lastActiveDate: int;
+    deactivatedDate?: int;
+    deletionRequestedDate?: int;
+    deletionDate?: int;
+    role?: string;
+    CONSTRUCTOR_ID: 1974293164;
+    SUBCLASS_OF_ID: 2882916790;
+    className: 'AccountState';
+
+    static fromReader(reader: Reader): AccountState;
+  }
+  export class UpdatePostID extends VirtualClass<{
+    id: long;
+    randomId: long;
+  }> {
+    id: long;
+    randomId: long;
+    CONSTRUCTOR_ID: 3899792331;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdatePostID';
+
+    static fromReader(reader: Reader): UpdatePostID;
+  }
+  export class UpdateNewPost extends VirtualClass<{
+    post: Api.TypePost;
+    pts: int;
+    ptsCount: int;
+  }> {
+    post: Api.TypePost;
+    pts: int;
+    ptsCount: int;
+    CONSTRUCTOR_ID: 3643729465;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateNewPost';
+
+    static fromReader(reader: Reader): UpdateNewPost;
+  }
+  export class UpdateEditPost extends VirtualClass<{
+    post: Api.TypePost;
+    pts: int;
+    ptsCount: int;
+  }> {
+    post: Api.TypePost;
+    pts: int;
+    ptsCount: int;
+    CONSTRUCTOR_ID: 1244824188;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateEditPost';
+
+    static fromReader(reader: Reader): UpdateEditPost;
+  }
+  export class UpdateDeletePosts extends VirtualClass<{
+    id: long[];
+    pts: int;
+    ptsCount: int;
+  }> {
+    id: long[];
+    pts: int;
+    ptsCount: int;
+    CONSTRUCTOR_ID: 2123735881;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateDeletePosts';
+
+    static fromReader(reader: Reader): UpdateDeletePosts;
+  }
+  export class UpdateReadFeed extends VirtualClass<{
+    tab: Api.TypeFeedTab;
+    maxId: long;
+  }> {
+    tab: Api.TypeFeedTab;
+    maxId: long;
+    CONSTRUCTOR_ID: 2746188115;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateReadFeed';
+
+    static fromReader(reader: Reader): UpdateReadFeed;
+  }
+  export class UpdatePostReplyDraft extends VirtualClass<{
+    to: Api.TypePostRef;
+    draft: Api.TypeDraftMessage;
+  }> {
+    to: Api.TypePostRef;
+    draft: Api.TypeDraftMessage;
+    CONSTRUCTOR_ID: 3292017649;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdatePostReplyDraft';
+
+    static fromReader(reader: Reader): UpdatePostReplyDraft;
+  }
+  export class UpdatePostReactions extends VirtualClass<{
+    id: long;
+    reactions: Api.TypeMessageReactions;
+  }> {
+    id: long;
+    reactions: Api.TypeMessageReactions;
+    CONSTRUCTOR_ID: 3752453550;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdatePostReactions';
+
+    static fromReader(reader: Reader): UpdatePostReactions;
+  }
+  export class UpdateUserExtra extends VirtualClass<{
+    extra: Api.TypeUserExtra;
+  }> {
+    extra: Api.TypeUserExtra;
+    CONSTRUCTOR_ID: 3051263892;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateUserExtra';
+
+    static fromReader(reader: Reader): UpdateUserExtra;
+  }
+  export class UpdateActivity extends VirtualClass<{
+    row: Api.TypeActivityRow;
+  }> {
+    row: Api.TypeActivityRow;
+    CONSTRUCTOR_ID: 567341885;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateActivity';
+
+    static fromReader(reader: Reader): UpdateActivity;
+  }
+  export class UpdateActivityRead extends VirtualClass<{
+    // flags: Api.Type;
+    filter?: Api.TypeActivityFilter;
+    maxId?: long;
+    id?: long[];
+  } | void> {
+    // flags: Api.Type;
+    filter?: Api.TypeActivityFilter;
+    maxId?: long;
+    id?: long[];
+    CONSTRUCTOR_ID: 2636094497;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateActivityRead';
+
+    static fromReader(reader: Reader): UpdateActivityRead;
+  }
+  export class UpdateFeedTab extends VirtualClass<{
+    // flags: Api.Type;
+    id: int;
+    tab?: Api.TypeFeedTab;
+  }> {
+    // flags: Api.Type;
+    id: int;
+    tab?: Api.TypeFeedTab;
+    CONSTRUCTOR_ID: 2188619785;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateFeedTab';
+
+    static fromReader(reader: Reader): UpdateFeedTab;
+  }
+  export class UpdateFeedTabsOrder extends VirtualClass<{
+    order: int[];
+  }> {
+    order: int[];
+    CONSTRUCTOR_ID: 227631159;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateFeedTabsOrder';
+
+    static fromReader(reader: Reader): UpdateFeedTabsOrder;
+  }
+  export class UpdateFeedPost extends VirtualClass<{
+    tabIds: int[];
+    post: Api.TypePost;
+  }> {
+    tabIds: int[];
+    post: Api.TypePost;
+    CONSTRUCTOR_ID: 3816755028;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateFeedPost';
+
+    static fromReader(reader: Reader): UpdateFeedPost;
+  }
+  export class UpdateFeedForYouBatch extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2103253346;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateFeedForYouBatch';
+
+    static fromReader(reader: Reader): UpdateFeedForYouBatch;
+  }
+  export class UpdateFeedTabs extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 3804224675;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateFeedTabs';
+
+    static fromReader(reader: Reader): UpdateFeedTabs;
+  }
+  export class UpdateAudienceLists extends VirtualClass<void> {
+    CONSTRUCTOR_ID: 2031965941;
+    SUBCLASS_OF_ID: 2676568142;
+    className: 'UpdateAudienceLists';
+
+    static fromReader(reader: Reader): UpdateAudienceLists;
+  }
   export class ResPQ extends VirtualClass<{
     nonce: int128;
     serverNonce: int128;
@@ -26415,6 +27877,271 @@ namespace Api {
     }
   }
 
+  export namespace posts {
+    export class FeedNotModified extends VirtualClass<{
+      state: string;
+    }> {
+      state: string;
+      CONSTRUCTOR_ID: 3639684145;
+      SUBCLASS_OF_ID: 1004867723;
+      className: 'FeedNotModified';
+
+      static fromReader(reader: Reader): FeedNotModified;
+    }
+    export class Posts extends VirtualClass<{
+      // flags: Api.Type;
+      count?: int;
+      posts: Api.TypePost[];
+      refs: Api.TypePost[];
+      nextOffset?: string;
+      state?: string;
+      readMaxId?: long;
+      topics: Api.TypePostTopic[];
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+    }> {
+      // flags: Api.Type;
+      count?: int;
+      posts: Api.TypePost[];
+      refs: Api.TypePost[];
+      nextOffset?: string;
+      state?: string;
+      readMaxId?: long;
+      topics: Api.TypePostTopic[];
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+      CONSTRUCTOR_ID: 632292549;
+      SUBCLASS_OF_ID: 1004867723;
+      className: 'Posts';
+
+      static fromReader(reader: Reader): Posts;
+    }
+    export class PostViewers extends VirtualClass<{
+      // flags: Api.Type;
+      count: int;
+      viewers: Api.TypePostViewer[];
+      nextOffset?: string;
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+    }> {
+      // flags: Api.Type;
+      count: int;
+      viewers: Api.TypePostViewer[];
+      nextOffset?: string;
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+      CONSTRUCTOR_ID: 3140487212;
+      SUBCLASS_OF_ID: 3818353609;
+      className: 'PostViewers';
+
+      static fromReader(reader: Reader): PostViewers;
+    }
+    export class FeedTabs extends VirtualClass<{
+      tabs: Api.TypeFeedTab[];
+      hashtags: Api.TypePostHashtag[];
+      topics: Api.TypePostTopic[];
+    }> {
+      tabs: Api.TypeFeedTab[];
+      hashtags: Api.TypePostHashtag[];
+      topics: Api.TypePostTopic[];
+      CONSTRUCTOR_ID: 520426329;
+      SUBCLASS_OF_ID: 3380553531;
+      className: 'FeedTabs';
+
+      static fromReader(reader: Reader): FeedTabs;
+    }
+  }
+
+  export namespace topics {
+    export class Topics extends VirtualClass<{
+      // flags: Api.Type;
+      topics: Api.TypePostTopic[];
+      nextOffset?: string;
+    }> {
+      // flags: Api.Type;
+      topics: Api.TypePostTopic[];
+      nextOffset?: string;
+      CONSTRUCTOR_ID: 884527391;
+      SUBCLASS_OF_ID: 50615775;
+      className: 'Topics';
+
+      static fromReader(reader: Reader): Topics;
+    }
+  }
+
+  export namespace follows {
+    export class Users extends VirtualClass<{
+      // flags: Api.Type;
+      count?: int;
+      rows: Api.TypeFollowRow[];
+      nextOffset?: string;
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+    }> {
+      // flags: Api.Type;
+      count?: int;
+      rows: Api.TypeFollowRow[];
+      nextOffset?: string;
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+      CONSTRUCTOR_ID: 1599056795;
+      SUBCLASS_OF_ID: 3166197125;
+      className: 'Users';
+
+      static fromReader(reader: Reader): Users;
+    }
+  }
+
+  export namespace statuses {
+    export class Reactions extends VirtualClass<{
+      // flags: Api.Type;
+      count: int;
+      reactions: Api.TypeStatusReaction[];
+      nextOffset?: string;
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+    }> {
+      // flags: Api.Type;
+      count: int;
+      reactions: Api.TypeStatusReaction[];
+      nextOffset?: string;
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+      CONSTRUCTOR_ID: 2572603553;
+      SUBCLASS_OF_ID: 4221367383;
+      className: 'Reactions';
+
+      static fromReader(reader: Reader): Reactions;
+    }
+  }
+
+  export namespace profiles {
+    export class Profile extends VirtualClass<{
+      // flags: Api.Type;
+      fullUser: Api.TypeUserFull;
+      extra: Api.TypeUserExtra;
+      postsCount: int;
+      followersCount: int;
+      followingCount: int;
+      streak?: Api.TypeStreak;
+      ban?: Api.TypeProfileBan;
+      email?: string;
+      account?: Api.TypeAccountState;
+      blockedBy?: true;
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+    }> {
+      // flags: Api.Type;
+      fullUser: Api.TypeUserFull;
+      extra: Api.TypeUserExtra;
+      postsCount: int;
+      followersCount: int;
+      followingCount: int;
+      streak?: Api.TypeStreak;
+      ban?: Api.TypeProfileBan;
+      email?: string;
+      account?: Api.TypeAccountState;
+      blockedBy?: true;
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+      CONSTRUCTOR_ID: 1803721914;
+      SUBCLASS_OF_ID: 3354915814;
+      className: 'Profile';
+
+      static fromReader(reader: Reader): Profile;
+    }
+    export class ConfirmToken extends VirtualClass<{
+      token: bytes;
+      validUntil: int;
+    }> {
+      token: bytes;
+      validUntil: int;
+      CONSTRUCTOR_ID: 118348076;
+      SUBCLASS_OF_ID: 3004537301;
+      className: 'ConfirmToken';
+
+      static fromReader(reader: Reader): ConfirmToken;
+    }
+    export class Deletion extends VirtualClass<{
+      date: int;
+    }> {
+      date: int;
+      CONSTRUCTOR_ID: 2385379330;
+      SUBCLASS_OF_ID: 4098696096;
+      className: 'Deletion';
+
+      static fromReader(reader: Reader): Deletion;
+    }
+  }
+
+  export namespace activity {
+    export class Rows extends VirtualClass<{
+      // flags: Api.Type;
+      rows: Api.TypeActivityRow[];
+      nextOffset?: string;
+      posts: Api.TypePost[];
+      stories: Api.TypeFoundStory[];
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+    }> {
+      // flags: Api.Type;
+      rows: Api.TypeActivityRow[];
+      nextOffset?: string;
+      posts: Api.TypePost[];
+      stories: Api.TypeFoundStory[];
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+      userExtras: Api.TypeUserExtra[];
+      CONSTRUCTOR_ID: 1415531187;
+      SUBCLASS_OF_ID: 1842301298;
+      className: 'Rows';
+
+      static fromReader(reader: Reader): Rows;
+    }
+    export class Summary extends VirtualClass<{
+      unreadAll: int;
+      unreadMentions: int;
+      unreadFollows: int;
+      followRequestsCount: int;
+      followRequestIds: long[];
+      topInteractors: Api.TypeActivityInteractor[];
+      users: Api.TypeUser[];
+    }> {
+      unreadAll: int;
+      unreadMentions: int;
+      unreadFollows: int;
+      followRequestsCount: int;
+      followRequestIds: long[];
+      topInteractors: Api.TypeActivityInteractor[];
+      users: Api.TypeUser[];
+      CONSTRUCTOR_ID: 1063282978;
+      SUBCLASS_OF_ID: 1631434769;
+      className: 'Summary';
+
+      static fromReader(reader: Reader): Summary;
+    }
+  }
+
+  export namespace emailauth {
+    export class LegacyPassword extends VirtualClass<{
+      // flags: Api.Type;
+      hint?: string;
+      pendingResetDate?: int;
+    } | void> {
+      // flags: Api.Type;
+      hint?: string;
+      pendingResetDate?: int;
+      CONSTRUCTOR_ID: 3943800725;
+      SUBCLASS_OF_ID: 2893615616;
+      className: 'LegacyPassword';
+
+      static fromReader(reader: Reader): LegacyPassword;
+    }
+  }
+
   export class InvokeAfterMsg extends Request<{
     msgId: long;
     query: X;
@@ -26510,6 +28237,13 @@ namespace Api {
     query: X;
   }, X> {
     token: string;
+    query: X;
+  }
+  export class InvokeWithStoryExtra extends Request<{
+    extra: Api.TypeInputStoryExtra;
+    query: X;
+  }, X> {
+    extra: Api.TypeInputStoryExtra;
     query: X;
   }
   export class ReqPq extends Request<{
@@ -33943,7 +35677,769 @@ namespace Api {
     }
   }
 
-  export type AnyRequest = InvokeAfterMsg | InvokeAfterMsgs | InitConnection | InvokeWithLayer | InvokeWithoutUpdates | InvokeWithMessagesRange | InvokeWithTakeout | InvokeWithBusinessConnection | InvokeWithGooglePlayIntegrity | InvokeWithApnsSecret | InvokeWithReCaptcha | ReqPq | ReqPqMulti | ReqDHParams | SetClientDHParams | DestroyAuthKey | RpcDropAnswer | GetFutureSalts | Ping | PingDelayDisconnect | DestroySession
+  export namespace posts {
+    export class SendPost extends Request<{
+      // flags: Api.Type;
+      silent?: true;
+      noforwards?: true;
+      replyTo?: Api.TypeInputPostRef;
+      content: Api.TypeInputPostContent;
+      privacyRules: Api.TypeInputPrivacyRule[];
+      replyPrivacy: Api.TypePostReplyPrivacy;
+      ttlPeriod?: int;
+      scheduleDate?: int;
+      draftId?: long;
+      randomId: long;
+    }, Api.TypeUpdates> {
+      // flags: Api.Type;
+      silent?: true;
+      noforwards?: true;
+      replyTo?: Api.TypeInputPostRef;
+      content: Api.TypeInputPostContent;
+      privacyRules: Api.TypeInputPrivacyRule[];
+      replyPrivacy: Api.TypePostReplyPrivacy;
+      ttlPeriod?: int;
+      scheduleDate?: int;
+      draftId?: long;
+      randomId: long;
+    }
+    export class EditPost extends Request<{
+      // flags: Api.Type;
+      id: long;
+      content?: Api.TypeInputPostContent;
+      privacyRules?: Api.TypeInputPrivacyRule[];
+      replyPrivacy?: Api.TypePostReplyPrivacy;
+      noforwards?: Bool;
+      scheduleDate?: int;
+      silent?: Bool;
+    }, Api.TypeUpdates> {
+      // flags: Api.Type;
+      id: long;
+      content?: Api.TypeInputPostContent;
+      privacyRules?: Api.TypeInputPrivacyRule[];
+      replyPrivacy?: Api.TypePostReplyPrivacy;
+      noforwards?: Bool;
+      scheduleDate?: int;
+      silent?: Bool;
+    }
+    export class DeletePosts extends Request<{
+      id: long[];
+    }, Api.TypeUpdates> {
+      id: long[];
+    }
+    export class GetPosts extends Request<{
+      id: long[];
+    }, posts.TypePosts> {
+      id: long[];
+    }
+    export class GetFeed extends Request<{
+      // flags: Api.Type;
+      tab: Api.TypeFeedTab;
+      state?: string;
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      // flags: Api.Type;
+      tab: Api.TypeFeedTab;
+      state?: string;
+      offset: string;
+      limit: int;
+    }
+    export class ReadFeed extends Request<{
+      tab: Api.TypeFeedTab;
+      maxId: long;
+    }, Bool> {
+      tab: Api.TypeFeedTab;
+      maxId: long;
+    }
+    export class GetUserPosts extends Request<{
+      userId: Api.TypeInputUser;
+      kind: Api.TypeProfilePosts;
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      userId: Api.TypeInputUser;
+      kind: Api.TypeProfilePosts;
+      offset: string;
+      limit: int;
+    }
+    export class GetReplies extends Request<{
+      to: Api.TypeInputPostRef;
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      to: Api.TypeInputPostRef;
+      offset: string;
+      limit: int;
+    }
+    export class GetShares extends Request<{
+      id: long;
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      id: long;
+      offset: string;
+      limit: int;
+    }
+    export class GetBookmarks extends Request<{
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      offset: string;
+      limit: int;
+    }
+    export class GetReacted extends Request<{
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      offset: string;
+      limit: int;
+    }
+    export class GetArchive extends Request<{
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      offset: string;
+      limit: int;
+    }
+    export class SearchPosts extends Request<{
+      // flags: Api.Type;
+      top?: true;
+      cashtag?: true;
+      q?: string;
+      hashtag?: string;
+      topicId?: long;
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      // flags: Api.Type;
+      top?: true;
+      cashtag?: true;
+      q?: string;
+      hashtag?: string;
+      topicId?: long;
+      offset: string;
+      limit: int;
+    }
+    export class TogglePinned extends Request<{
+      id: long;
+      pinned: Bool;
+    }, Api.TypeUpdates> {
+      id: long;
+      pinned: Bool;
+    }
+    export class ToggleArchived extends Request<{
+      id: long[];
+      archived: Bool;
+    }, Api.TypeUpdates> {
+      id: long[];
+      archived: Bool;
+    }
+    export class ToggleBookmarked extends Request<{
+      id: long;
+      bookmarked: Bool;
+    }, Api.TypeUpdates> {
+      id: long;
+      bookmarked: Bool;
+    }
+    export class SendReaction extends Request<{
+      // flags: Api.Type;
+      addToRecent?: true;
+      id: long;
+      reaction?: Api.TypeReaction[];
+    }, Api.TypeUpdates> {
+      // flags: Api.Type;
+      addToRecent?: true;
+      id: long;
+      reaction?: Api.TypeReaction[];
+    }
+    export class GetReactionsList extends Request<{
+      // flags: Api.Type;
+      id: long;
+      reaction?: Api.TypeReaction;
+      offset?: string;
+      limit: int;
+    }, messages.TypeMessageReactionsList> {
+      // flags: Api.Type;
+      id: long;
+      reaction?: Api.TypeReaction;
+      offset?: string;
+      limit: int;
+    }
+    export class ReadReactions extends Request<{
+      id: long[];
+    }, Bool> {
+      id: long[];
+    }
+    export class SendVote extends Request<{
+      id: long;
+      options: bytes[];
+    }, Api.TypeUpdates> {
+      id: long;
+      options: bytes[];
+    }
+    export class GetViewers extends Request<{
+      id: long;
+      offset: string;
+      limit: int;
+    }, posts.TypePostViewers> {
+      id: long;
+      offset: string;
+      limit: int;
+    }
+    export class ExportPostLink extends Request<{
+      id: long;
+    }, Api.TypeExportedPostLink> {
+      id: long;
+    }
+    export class Report extends Request<{
+      id: long[];
+      option: bytes;
+      message: string;
+    }, Api.TypeReportResult> {
+      id: long[];
+      option: bytes;
+      message: string;
+    }
+    export class Summarize extends Request<{
+      // flags: Api.Type;
+      id: long;
+      toLang?: string;
+    }, Api.TypeTextWithEntities> {
+      // flags: Api.Type;
+      id: long;
+      toLang?: string;
+    }
+    export class SummarizePosts extends Request<{
+      // flags: Api.Type;
+      source: Api.TypeSummarySource;
+      toLang?: string;
+    }, Api.TypeTextWithEntities> {
+      // flags: Api.Type;
+      source: Api.TypeSummarySource;
+      toLang?: string;
+    }
+    export class SaveDraft extends Request<{
+      // flags: Api.Type;
+      noforwards?: true;
+      id?: long;
+      replyTo?: Api.TypeInputPostRef;
+      content: Api.TypeInputPostContent;
+      privacyRules?: Api.TypeInputPrivacyRule[];
+      replyPrivacy?: Api.TypePostReplyPrivacy;
+      ttlPeriod?: int;
+    }, Api.TypePost> {
+      // flags: Api.Type;
+      noforwards?: true;
+      id?: long;
+      replyTo?: Api.TypeInputPostRef;
+      content: Api.TypeInputPostContent;
+      privacyRules?: Api.TypeInputPrivacyRule[];
+      replyPrivacy?: Api.TypePostReplyPrivacy;
+      ttlPeriod?: int;
+    }
+    export class GetDrafts extends Request<{
+      offset: string;
+      limit: int;
+    }, posts.TypePosts> {
+      offset: string;
+      limit: int;
+    }
+    export class DeleteDrafts extends Request<{
+      id: long[];
+    }, Bool> {
+      id: long[];
+    }
+    export class SaveReplyDraft extends Request<{
+      // flags: Api.Type;
+      noWebpage?: true;
+      to: Api.TypeInputPostRef;
+      message: string;
+      entities?: Api.TypeMessageEntity[];
+    }, Bool> {
+      // flags: Api.Type;
+      noWebpage?: true;
+      to: Api.TypeInputPostRef;
+      message: string;
+      entities?: Api.TypeMessageEntity[];
+    }
+    export class GetAllReplyDrafts extends Request<void, Api.TypeUpdates> {}
+    export class ClearAllReplyDrafts extends Request<void, Bool> {}
+    export class GetScheduledPosts extends Request<void, posts.TypePosts> {}
+    export class SendScheduledPosts extends Request<{
+      id: long[];
+    }, Api.TypeUpdates> {
+      id: long[];
+    }
+    export class DeleteScheduledPosts extends Request<{
+      id: long[];
+    }, Api.TypeUpdates> {
+      id: long[];
+    }
+    export class GetDefaultTTL extends Request<void, Api.TypeDefaultHistoryTTL> {}
+    export class SetDefaultTTL extends Request<{
+      period: int;
+    }, Bool> {
+      period: int;
+    }
+    export class GetFeedTabs extends Request<void, posts.TypeFeedTabs> {}
+    export class UpdateFeedTab extends Request<{
+      // flags: Api.Type;
+      id: int;
+      tab?: Api.TypeFeedTab;
+    }, Bool> {
+      // flags: Api.Type;
+      id: int;
+      tab?: Api.TypeFeedTab;
+    }
+    export class UpdateFeedTabsOrder extends Request<{
+      order: int[];
+    }, Bool> {
+      order: int[];
+    }
+  }
+
+  export namespace topics {
+    export class GetTopic extends Request<{
+      id: long;
+    }, Api.TypePostTopic> {
+      id: long;
+    }
+    export class GetTrending extends Request<{
+      offset: string;
+      limit: int;
+    }, topics.TypeTopics> {
+      offset: string;
+      limit: int;
+    }
+    export class Search extends Request<{
+      q: string;
+      offset: string;
+      limit: int;
+    }, topics.TypeTopics> {
+      q: string;
+      offset: string;
+      limit: int;
+    }
+    export class Report extends Request<{
+      id: long;
+      option: bytes;
+      message: string;
+    }, Api.TypeReportResult> {
+      id: long;
+      option: bytes;
+      message: string;
+    }
+  }
+
+  export namespace hashtags {
+    export class GetHashtag extends Request<{
+      // flags: Api.Type;
+      cashtag?: true;
+      tag: string;
+    }, Api.TypePostHashtag> {
+      // flags: Api.Type;
+      cashtag?: true;
+      tag: string;
+    }
+    export class Suggest extends Request<{
+      q: string;
+      limit: int;
+    }, Api.TypePostHashtag[]> {
+      q: string;
+      limit: int;
+    }
+  }
+
+  export namespace follows {
+    export class Follow extends Request<{
+      userId: Api.TypeInputUser;
+    }, Api.TypeUpdates> {
+      userId: Api.TypeInputUser;
+    }
+    export class Unfollow extends Request<{
+      userId: Api.TypeInputUser;
+    }, Api.TypeUpdates> {
+      userId: Api.TypeInputUser;
+    }
+    export class GetFollowers extends Request<{
+      userId: Api.TypeInputUser;
+      offset: string;
+      limit: int;
+    }, follows.TypeUsers> {
+      userId: Api.TypeInputUser;
+      offset: string;
+      limit: int;
+    }
+    export class GetFollowing extends Request<{
+      userId: Api.TypeInputUser;
+      offset: string;
+      limit: int;
+    }, follows.TypeUsers> {
+      userId: Api.TypeInputUser;
+      offset: string;
+      limit: int;
+    }
+    export class GetRequests extends Request<{
+      // flags: Api.Type;
+      sent?: true;
+      offset: string;
+      limit: int;
+    }, follows.TypeUsers> {
+      // flags: Api.Type;
+      sent?: true;
+      offset: string;
+      limit: int;
+    }
+    export class AcceptRequest extends Request<{
+      userId: Api.TypeInputUser;
+    }, Api.TypeUpdates> {
+      userId: Api.TypeInputUser;
+    }
+    export class RejectRequest extends Request<{
+      userId: Api.TypeInputUser;
+    }, Api.TypeUpdates> {
+      userId: Api.TypeInputUser;
+    }
+    export class WithdrawRequest extends Request<{
+      userId: Api.TypeInputUser;
+    }, Api.TypeUpdates> {
+      userId: Api.TypeInputUser;
+    }
+    export class Mute extends Request<{
+      userId: Api.TypeInputUser;
+      until: int;
+    }, Api.TypeUpdates> {
+      userId: Api.TypeInputUser;
+      until: int;
+    }
+    export class GetMuted extends Request<{
+      offset: string;
+      limit: int;
+    }, follows.TypeUsers> {
+      offset: string;
+      limit: int;
+    }
+    export class GetSuggestions extends Request<{
+      limit: int;
+    }, follows.TypeUsers> {
+      limit: int;
+    }
+  }
+
+  export namespace profiles {
+    export class GetProfile extends Request<{
+      userId: Api.TypeInputUser;
+    }, profiles.TypeProfile> {
+      userId: Api.TypeInputUser;
+    }
+    export class GetUserExtras extends Request<{
+      id: Api.TypeInputUser[];
+    }, Api.TypeUserExtra[]> {
+      id: Api.TypeInputUser[];
+    }
+    export class RestoreStreak extends Request<void, Api.TypeStreak> {}
+    export class SendConfirmCode extends Request<{
+      purpose: Api.TypeConfirmPurpose;
+    }, account.TypeSentEmailCode> {
+      purpose: Api.TypeConfirmPurpose;
+    }
+    export class Confirm extends Request<{
+      // flags: Api.Type;
+      purpose: Api.TypeConfirmPurpose;
+      code: string;
+      password?: Api.TypeInputCheckPasswordSRP;
+    }, profiles.TypeConfirmToken> {
+      // flags: Api.Type;
+      purpose: Api.TypeConfirmPurpose;
+      code: string;
+      password?: Api.TypeInputCheckPasswordSRP;
+    }
+    export class SendNewEmailCode extends Request<{
+      confirmToken: bytes;
+      email: string;
+    }, account.TypeSentEmailCode> {
+      confirmToken: bytes;
+      email: string;
+    }
+    export class ChangeEmail extends Request<{
+      confirmToken: bytes;
+      email: string;
+      code: string;
+    }, Bool> {
+      confirmToken: bytes;
+      email: string;
+      code: string;
+    }
+    export class SetPrivate extends Request<{
+      enabled: Bool;
+    }, Bool> {
+      enabled: Bool;
+    }
+    export class Deactivate extends Request<void, Bool> {}
+    export class Reactivate extends Request<void, Bool> {}
+    export class ScheduleDeletion extends Request<{
+      confirmToken: bytes;
+    }, profiles.TypeDeletion> {
+      confirmToken: bytes;
+    }
+    export class CancelDeletion extends Request<void, Bool> {}
+    export class RenameSession extends Request<{
+      hash: long;
+      name: string;
+    }, Bool> {
+      hash: long;
+      name: string;
+    }
+  }
+
+  export namespace statuses {
+    export class SetStatus extends Request<{
+      text: string;
+      period: int;
+    }, Api.TypeProfileStatus> {
+      text: string;
+      period: int;
+    }
+    export class DeleteStatus extends Request<void, Bool> {}
+    export class SendReaction extends Request<{
+      // flags: Api.Type;
+      userId: Api.TypeInputUser;
+      statusId: long;
+      reaction?: Api.TypeReaction;
+    }, Bool> {
+      // flags: Api.Type;
+      userId: Api.TypeInputUser;
+      statusId: long;
+      reaction?: Api.TypeReaction;
+    }
+    export class GetReactions extends Request<{
+      offset: string;
+      limit: int;
+    }, statuses.TypeReactions> {
+      offset: string;
+      limit: int;
+    }
+  }
+
+  export namespace pokes {
+    export class Send extends Request<{
+      // flags: Api.Type;
+      userId: Api.TypeInputUser;
+      message?: string;
+    }, Bool> {
+      // flags: Api.Type;
+      userId: Api.TypeInputUser;
+      message?: string;
+    }
+  }
+
+  export namespace lists {
+    export class GetLists extends Request<void, Api.TypeAudienceList[]> {}
+    export class CreateList extends Request<{
+      title: string;
+      users: Api.TypeInputUser[];
+    }, Api.TypeAudienceList> {
+      title: string;
+      users: Api.TypeInputUser[];
+    }
+    export class EditList extends Request<{
+      id: int;
+      title: string;
+    }, Api.TypeAudienceList> {
+      id: int;
+      title: string;
+    }
+    export class DeleteList extends Request<{
+      id: int;
+    }, Bool> {
+      id: int;
+    }
+    export class ReorderLists extends Request<{
+      order: int[];
+    }, Bool> {
+      order: int[];
+    }
+    export class GetMembers extends Request<{
+      id: int;
+      offset: string;
+      limit: int;
+    }, follows.TypeUsers> {
+      id: int;
+      offset: string;
+      limit: int;
+    }
+    export class EditMembers extends Request<{
+      id: int;
+      add: Api.TypeInputUser[];
+      remove: Api.TypeInputUser[];
+    }, Api.TypeAudienceList> {
+      id: int;
+      add: Api.TypeInputUser[];
+      remove: Api.TypeInputUser[];
+    }
+  }
+
+  export namespace activity {
+    export class GetRows extends Request<{
+      filter: Api.TypeActivityFilter;
+      offset: string;
+      limit: int;
+    }, activity.TypeRows> {
+      filter: Api.TypeActivityFilter;
+      offset: string;
+      limit: int;
+    }
+    export class GetSummary extends Request<void, activity.TypeSummary> {}
+    export class ReadRows extends Request<{
+      // flags: Api.Type;
+      filter?: Api.TypeActivityFilter;
+      maxId?: long;
+      id?: long[];
+    } | void, Bool> {
+      // flags: Api.Type;
+      filter?: Api.TypeActivityFilter;
+      maxId?: long;
+      id?: long[];
+    }
+    export class DeleteRow extends Request<{
+      id: long;
+    }, Bool> {
+      id: long;
+    }
+    export class GetRowPeople extends Request<{
+      id: long;
+      offset: string;
+      limit: int;
+    }, follows.TypeUsers> {
+      id: long;
+      offset: string;
+      limit: int;
+    }
+    export class GetSettings extends Request<void, Api.TypeActivitySettings> {}
+    export class UpdateSettings extends Request<{
+      settings: Api.TypeActivitySettings;
+    }, Bool> {
+      settings: Api.TypeActivitySettings;
+    }
+  }
+
+  export namespace storyextras {
+    export class GetExtras extends Request<{
+      peer: Api.TypeInputPeer;
+      id: int[];
+    }, Api.TypeStoryExtra[]> {
+      peer: Api.TypeInputPeer;
+      id: int[];
+    }
+    export class ReportCapture extends Request<{
+      // flags: Api.Type;
+      screenRecording?: true;
+      peer: Api.TypeInputPeer;
+      id: int;
+    }, Bool> {
+      // flags: Api.Type;
+      screenRecording?: true;
+      peer: Api.TypeInputPeer;
+      id: int;
+    }
+    export class GetCaptures extends Request<{
+      peer: Api.TypeInputPeer;
+      id: int;
+      users: Api.TypeInputUser[];
+    }, Api.TypeStoryCapture[]> {
+      peer: Api.TypeInputPeer;
+      id: int;
+      users: Api.TypeInputUser[];
+    }
+    export class ToggleNoForwards extends Request<{
+      peer: Api.TypeInputPeer;
+      id: int;
+      enabled: Bool;
+    }, Api.TypeUpdates> {
+      peer: Api.TypeInputPeer;
+      id: int;
+      enabled: Bool;
+    }
+  }
+
+  export namespace emailauth {
+    export class SendCode extends Request<{
+      email: string;
+      apiId: int;
+      apiHash: string;
+      settings: Api.TypeCodeSettings;
+    }, auth.TypeSentCode> {
+      email: string;
+      apiId: int;
+      apiHash: string;
+      settings: Api.TypeCodeSettings;
+    }
+    export class SignIn extends Request<{
+      email: string;
+      codeHash: string;
+      code: string;
+    }, auth.TypeAuthorization> {
+      email: string;
+      codeHash: string;
+      code: string;
+    }
+    export class SignUp extends Request<{
+      email: string;
+      codeHash: string;
+      name: string;
+      username: string;
+    }, auth.TypeAuthorization> {
+      email: string;
+      codeHash: string;
+      name: string;
+      username: string;
+    }
+    export class CheckUsername extends Request<{
+      username: string;
+    }, Bool> {
+      username: string;
+    }
+    export class GetLegacyPassword extends Request<void, emailauth.TypeLegacyPassword> {}
+    export class CheckLegacyPassword extends Request<{
+      password: string;
+    }, auth.TypeAuthorization> {
+      password: string;
+    }
+    export class ResetPassword extends Request<void, account.TypeResetPasswordResult> {}
+  }
+
+  export namespace admin {
+    export class GetAdmins extends Request<void, Api.TypeUser[]> {}
+    export class DeletePost extends Request<{
+      id: long;
+    }, Bool> {
+      id: long;
+    }
+    export class BanUser extends Request<{
+      userId: Api.TypeInputUser;
+      type: string;
+      until: int;
+    }, profiles.TypeProfile> {
+      userId: Api.TypeInputUser;
+      type: string;
+      until: int;
+    }
+    export class UnbanUser extends Request<{
+      userId: Api.TypeInputUser;
+    }, profiles.TypeProfile> {
+      userId: Api.TypeInputUser;
+    }
+    export class SetRole extends Request<{
+      userId: Api.TypeInputUser;
+      role: string;
+    }, profiles.TypeProfile> {
+      userId: Api.TypeInputUser;
+      role: string;
+    }
+  }
+
+  export type AnyRequest = InvokeAfterMsg | InvokeAfterMsgs | InitConnection | InvokeWithLayer | InvokeWithoutUpdates | InvokeWithMessagesRange | InvokeWithTakeout | InvokeWithBusinessConnection | InvokeWithGooglePlayIntegrity | InvokeWithApnsSecret | InvokeWithReCaptcha | InvokeWithStoryExtra | ReqPq | ReqPqMulti | ReqDHParams | SetClientDHParams | DestroyAuthKey | RpcDropAnswer | GetFutureSalts | Ping | PingDelayDisconnect | DestroySession
     | auth.SendCode | auth.SignUp | auth.SignIn | auth.LogOut | auth.ResetAuthorizations | auth.ExportAuthorization | auth.ImportAuthorization | auth.BindTempAuthKey | auth.ImportBotAuthorization | auth.CheckPassword | auth.RequestPasswordRecovery | auth.RecoverPassword | auth.ResendCode | auth.CancelCode | auth.DropTempAuthKeys | auth.ExportLoginToken | auth.ImportLoginToken | auth.AcceptLoginToken | auth.CheckRecoveryPassword | auth.ImportWebTokenAuthorization | auth.RequestFirebaseSms | auth.ResetLoginEmail | auth.ReportMissingCode | auth.CheckPaidAuth | auth.InitPasskeyLogin | auth.FinishPasskeyLogin | auth.CancelWebTokenAuthorization | auth.InitFirebasePnvLogin | auth.FinishFirebasePnvLogin | auth.FirebasePnvSignUp
     | account.RegisterDevice | account.UnregisterDevice | account.UpdateNotifySettings | account.GetNotifySettings | account.ResetNotifySettings | account.UpdateProfile | account.UpdateStatus | account.GetWallPapers | account.ReportPeer | account.CheckUsername | account.UpdateUsername | account.GetPrivacy | account.SetPrivacy | account.DeleteAccount | account.GetAccountTTL | account.SetAccountTTL | account.SendChangePhoneCode | account.ChangePhone | account.UpdateDeviceLocked | account.GetAuthorizations | account.ResetAuthorization | account.GetPassword | account.GetPasswordSettings | account.UpdatePasswordSettings | account.SendConfirmPhoneCode | account.ConfirmPhone | account.GetTmpPassword | account.GetWebAuthorizations | account.ResetWebAuthorization | account.ResetWebAuthorizations | account.GetAllSecureValues | account.GetSecureValue | account.SaveSecureValue | account.DeleteSecureValue | account.GetAuthorizationForm | account.AcceptAuthorization | account.SendVerifyPhoneCode | account.VerifyPhone | account.SendVerifyEmailCode | account.VerifyEmail | account.InitTakeoutSession | account.FinishTakeoutSession | account.ConfirmPasswordEmail | account.ResendPasswordEmail | account.CancelPasswordEmail | account.GetContactSignUpNotification | account.SetContactSignUpNotification | account.GetNotifyExceptions | account.GetWallPaper | account.UploadWallPaper | account.SaveWallPaper | account.InstallWallPaper | account.ResetWallPapers | account.GetAutoDownloadSettings | account.SaveAutoDownloadSettings | account.UploadTheme | account.CreateTheme | account.UpdateTheme | account.SaveTheme | account.InstallTheme | account.GetTheme | account.GetThemes | account.SetContentSettings | account.GetContentSettings | account.GetMultiWallPapers | account.GetGlobalPrivacySettings | account.SetGlobalPrivacySettings | account.ReportProfilePhoto | account.ResetPassword | account.DeclinePasswordReset | account.GetChatThemes | account.SetAuthorizationTTL | account.ChangeAuthorizationSettings | account.GetSavedRingtones | account.SaveRingtone | account.UploadRingtone | account.UpdateEmojiStatus | account.GetDefaultEmojiStatuses | account.GetRecentEmojiStatuses | account.ClearRecentEmojiStatuses | account.ReorderUsernames | account.ToggleUsername | account.GetDefaultProfilePhotoEmojis | account.GetDefaultGroupPhotoEmojis | account.GetAutoSaveSettings | account.SaveAutoSaveSettings | account.DeleteAutoSaveExceptions | account.InvalidateSignInCodes | account.UpdateColor | account.GetDefaultBackgroundEmojis | account.GetChannelDefaultEmojiStatuses | account.GetChannelRestrictedStatusEmojis | account.UpdateBusinessWorkHours | account.UpdateBusinessLocation | account.UpdateBusinessGreetingMessage | account.UpdateBusinessAwayMessage | account.UpdateConnectedBot | account.GetConnectedBots | account.GetBotBusinessConnection | account.UpdateBusinessIntro | account.ToggleConnectedBotPaused | account.DisablePeerConnectedBot | account.UpdateBirthday | account.CreateBusinessChatLink | account.EditBusinessChatLink | account.DeleteBusinessChatLink | account.GetBusinessChatLinks | account.ResolveBusinessChatLink | account.UpdatePersonalChannel | account.ToggleSponsoredMessages | account.GetReactionsNotifySettings | account.SetReactionsNotifySettings | account.GetCollectibleEmojiStatuses | account.GetPaidMessagesRevenue | account.ToggleNoPaidMessagesException | account.SetMainProfileTab | account.SaveMusic | account.GetSavedMusicIds | account.GetUniqueGiftChatThemes | account.InitPasskeyRegistration | account.RegisterPasskey | account.GetPasskeys | account.DeletePasskey | account.ConfirmBotConnection | account.GetWebBrowserSettings | account.UpdateWebBrowserSettings | account.ToggleWebBrowserSettingsException | account.DeleteWebBrowserSettingsExceptions
     | users.GetUsers | users.GetFullUser | users.SetSecureValueErrors | users.GetRequirementsToContact | users.GetSavedMusic | users.GetSavedMusicByID | users.SuggestBirthday
@@ -33970,6 +36466,18 @@ namespace Api {
     | communities.Create | communities.TogglePeerLink | communities.GetJoinedCommunities | communities.ToggleCommunityCollapsedInDialogs | communities.GetPeerLinkRequests | communities.TogglePeerLinkRequestApproval | communities.ToggleAllPeerLinkRequestApproval | communities.ToggleParticipantBanned | communities.GetParticipantJoinedChats
     | ephemeral.SendMessage | ephemeral.DeleteMessage | ephemeral.ReportMessage | ephemeral.GetCallbackAnswer | ephemeral.EditMessage | ephemeral.DeleteWelcomeMessage | ephemeral.DeleteAllWelcomeMessages | ephemeral.GetWelcomeMessages
     | toncenter.PerformApiRequest | toncenter.GetStreamingUrl
-    | wallet.GetState | wallet.GetUserAddresses | wallet.GetTransactions | wallet.GetTransactionsByIDs | wallet.GetTransactionsByMsgHash | wallet.ExportSecretPhrase | wallet.FetchEncryptedSecretPhrasePart | wallet.ReplaceWallet | wallet.DisableBackup | wallet.GetBackupHolderDcs | wallet.EnableBackup | wallet.GetProofChallenge | wallet.SendTransfer | wallet.GetGaslessInfo | wallet.GetExistingWaltBalance | wallet.GetNfts | wallet.TonConnectCreateSession | wallet.TonConnectRegisterKey | wallet.TonConnectSubmitConnectResult | wallet.TonConnectGetPending | wallet.TonConnectClaimRequest | wallet.TonConnectSubmitResponse | wallet.TonConnectNextEventId | wallet.TonConnectCloseSession | wallet.TonConnectGetSessions | wallet.SetCardStickers;
+    | wallet.GetState | wallet.GetUserAddresses | wallet.GetTransactions | wallet.GetTransactionsByIDs | wallet.GetTransactionsByMsgHash | wallet.ExportSecretPhrase | wallet.FetchEncryptedSecretPhrasePart | wallet.ReplaceWallet | wallet.DisableBackup | wallet.GetBackupHolderDcs | wallet.EnableBackup | wallet.GetProofChallenge | wallet.SendTransfer | wallet.GetGaslessInfo | wallet.GetExistingWaltBalance | wallet.GetNfts | wallet.TonConnectCreateSession | wallet.TonConnectRegisterKey | wallet.TonConnectSubmitConnectResult | wallet.TonConnectGetPending | wallet.TonConnectClaimRequest | wallet.TonConnectSubmitResponse | wallet.TonConnectNextEventId | wallet.TonConnectCloseSession | wallet.TonConnectGetSessions | wallet.SetCardStickers
+    | posts.SendPost | posts.EditPost | posts.DeletePosts | posts.GetPosts | posts.GetFeed | posts.ReadFeed | posts.GetUserPosts | posts.GetReplies | posts.GetShares | posts.GetBookmarks | posts.GetReacted | posts.GetArchive | posts.SearchPosts | posts.TogglePinned | posts.ToggleArchived | posts.ToggleBookmarked | posts.SendReaction | posts.GetReactionsList | posts.ReadReactions | posts.SendVote | posts.GetViewers | posts.ExportPostLink | posts.Report | posts.Summarize | posts.SummarizePosts | posts.SaveDraft | posts.GetDrafts | posts.DeleteDrafts | posts.SaveReplyDraft | posts.GetAllReplyDrafts | posts.ClearAllReplyDrafts | posts.GetScheduledPosts | posts.SendScheduledPosts | posts.DeleteScheduledPosts | posts.GetDefaultTTL | posts.SetDefaultTTL | posts.GetFeedTabs | posts.UpdateFeedTab | posts.UpdateFeedTabsOrder
+    | topics.GetTopic | topics.GetTrending | topics.Search | topics.Report
+    | hashtags.GetHashtag | hashtags.Suggest
+    | follows.Follow | follows.Unfollow | follows.GetFollowers | follows.GetFollowing | follows.GetRequests | follows.AcceptRequest | follows.RejectRequest | follows.WithdrawRequest | follows.Mute | follows.GetMuted | follows.GetSuggestions
+    | profiles.GetProfile | profiles.GetUserExtras | profiles.RestoreStreak | profiles.SendConfirmCode | profiles.Confirm | profiles.SendNewEmailCode | profiles.ChangeEmail | profiles.SetPrivate | profiles.Deactivate | profiles.Reactivate | profiles.ScheduleDeletion | profiles.CancelDeletion | profiles.RenameSession
+    | statuses.SetStatus | statuses.DeleteStatus | statuses.SendReaction | statuses.GetReactions
+    | pokes.Send
+    | lists.GetLists | lists.CreateList | lists.EditList | lists.DeleteList | lists.ReorderLists | lists.GetMembers | lists.EditMembers
+    | activity.GetRows | activity.GetSummary | activity.ReadRows | activity.DeleteRow | activity.GetRowPeople | activity.GetSettings | activity.UpdateSettings
+    | storyextras.GetExtras | storyextras.ReportCapture | storyextras.GetCaptures | storyextras.ToggleNoForwards
+    | emailauth.SendCode | emailauth.SignIn | emailauth.SignUp | emailauth.CheckUsername | emailauth.GetLegacyPassword | emailauth.CheckLegacyPassword | emailauth.ResetPassword
+    | admin.GetAdmins | admin.DeletePost | admin.BanUser | admin.UnbanUser | admin.SetRole;
 
 }

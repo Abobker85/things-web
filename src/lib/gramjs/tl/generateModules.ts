@@ -2,9 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import { appendThingsSchema, listThingsMethods } from '../../../../dev/things/schema';
+
 import './types-generator/generate';
 
 const DIR_NAME = import.meta.dirname;
+const API_TL = './static/api.tl';
 
 function generateSchema(input: string, output: string, reducedMethods?: string) {
     let apiTl = fs.readFileSync(
@@ -12,12 +15,21 @@ function generateSchema(input: string, output: string, reducedMethods?: string) 
         'utf-8',
     );
 
+    // Things: the Things additions join upstream's API schema, and all of their methods are kept
+    const isApiSchema = input === API_TL;
+    if (isApiSchema) {
+        apiTl = appendThingsSchema(apiTl);
+    }
+
     if (reducedMethods) {
         apiTl = stripTl(apiTl);
         const methodList: string[] = JSON.parse(fs.readFileSync(
             path.resolve(DIR_NAME, reducedMethods),
             'utf-8',
         ));
+        if (isApiSchema) {
+            methodList.push(...listThingsMethods());
+        }
         let isFunction = false;
         const reducedApiTl: string[] = [];
 
@@ -54,7 +66,7 @@ function main() {
     const args = process.argv.slice(2);
     const FULL_SCHEMA = args.length && args[0] === 'full';
 
-    generateSchema('./static/api.tl', './apiTl.ts', !FULL_SCHEMA ? './static/api.json' : undefined);
+    generateSchema(API_TL, './apiTl.ts', !FULL_SCHEMA ? './static/api.json' : undefined);
     generateSchema('./static/schema.tl', './schemaTl.ts', !FULL_SCHEMA ? './static/schema.json' : undefined);
 }
 
