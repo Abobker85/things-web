@@ -27,6 +27,7 @@ import {
 import { FORCE_FALLBACK_LANG, LANG_PACK } from '../../config';
 import { callApi } from '../../api/gramjs';
 import renderText, { type TextFilter } from '../../components/common/helpers/renderText';
+import { getThingsString } from '../../things/localization';
 import { IS_INTL_LIST_FORMAT_SUPPORTED } from '../browser/globalEnvironment';
 import { MAIN_IDB_STORE } from '../browser/idb';
 import { getBasicListFormat } from '../browser/intlListFormat';
@@ -483,6 +484,16 @@ function getIntlLocale(languageInfo = language) {
 }
 
 function getString(langKey: LangKey, count: number) {
+  // Things: Things' own texts come first, so they also replace upstream's wording
+  const thingsString = getThingsString(language?.langCode, langKey);
+  if (thingsString) {
+    const pluralRules = thingsString.isFallback ? FALLBACK_PLURAL_RULES : formatters.pluralRules;
+
+    return isPluralLangString(thingsString.value)
+      ? (thingsString.value[pluralRules.select(count)] ?? thingsString.value.other)
+      : thingsString.value;
+  }
+
   const shouldForceFallback = FORCE_FALLBACK_LANG && language?.langCode === FALLBACK_LANG_CODE;
   let langPackStringValue = !shouldForceFallback ? langPack?.strings[langKey] : undefined;
   if (langPackStringValue && isDeletedLangString(langPackStringValue)) langPackStringValue = undefined;
@@ -564,7 +575,7 @@ function processTranslationAdvanced(
     const specialReplacements = Object.entries(options.specialReplacement);
     tempResult = specialReplacements.reduce((acc, [key, value]) => {
       return replaceInStringsWithTeact(acc, key, value);
-    }, tempResult as TeactNode);
+    }, tempResult);
   }
 
   const withRenderText = options?.withNodes;

@@ -192,7 +192,10 @@ export type GlobalState = {
     rememberMe?: boolean;
     nearestCountry?: string;
     isCodeViaApp?: boolean;
+    codeLength?: number;
     hint?: string;
+    // Things: when a password reset that is already under way takes effect
+    passwordResetDate?: number;
     qrCode?: {
       token: string;
       expires: number;

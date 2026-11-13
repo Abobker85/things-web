@@ -155,12 +155,14 @@ function onUpdateAuthorizationState<T extends GlobalState>(global: T, update: Ap
     case 'authorizationStateWaitCode':
       global = updateAuth(global, {
         isCodeViaApp: update.isCodeViaApp,
+        codeLength: update.codeLength,
       });
       setGlobal(global);
       break;
     case 'authorizationStateWaitPassword':
       global = updateAuth(global, {
         hint: update.hint,
+        passwordResetDate: update.passwordResetDate,
       });
 
       if (update.noReset) {

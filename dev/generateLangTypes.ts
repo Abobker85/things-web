@@ -12,7 +12,11 @@ export type LangKey = RegularLangKey | RegularLangKeyWithVariables | PluralLangK
 type LangVariable = string | number | undefined;
 `.trim();
 
-const data = readFileSync('./src/assets/localization/fallback.strings', 'utf8');
+// Things: Things' own keys are typed too
+const data = [
+  readFileSync('./src/assets/localization/fallback.strings', 'utf8'),
+  readFileSync('./src/things/localization/en.strings', 'utf8'),
+].join('\n');
 
 const parsed = readStrings(data);
 const regularKeysWithVars: Record<string, string[]> = {};

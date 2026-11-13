@@ -14,6 +14,9 @@ export {
   broadcastLocalDbUpdateFull,
 } from '../localDb';
 
+// Things
+export * from '../../../things/api/auth';
+
 export * from './account';
 
 export * from './chats';

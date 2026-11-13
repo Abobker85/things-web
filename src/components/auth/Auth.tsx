@@ -11,12 +11,12 @@ import { IS_MAC_OS, PLATFORM_ENV } from '../../util/browser/windowEnvironment';
 import useCurrentOrPrev from '../../hooks/useCurrentOrPrev';
 import useHistoryBack from '../../hooks/useHistoryBack';
 
+import AuthPhoneNumber from '../../things/auth/AuthEmail';
+import AuthCode from '../../things/auth/AuthEmailCode';
+import AuthRegister from '../../things/auth/AuthSignUp';
+import AuthPassword from '../../things/auth/AuthThingsPassword';
 import Transition from '../ui/Transition';
-import AuthCode from './AuthCode.async';
-import AuthPassword from './AuthPassword.async';
-import AuthPhoneNumber from './AuthPhoneNumber';
 import AuthQrCode from './AuthQrCode';
-import AuthRegister from './AuthRegister.async';
 
 import './Auth.scss';
 

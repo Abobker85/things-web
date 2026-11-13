@@ -6,8 +6,8 @@ import { DEBUG } from '../../../config';
 import { base64UrlToString } from '../../../util/encoding/base64';
 import { tryParseBigInt } from '../../../util/numbers';
 import { getServerTime } from '../../../util/serverTime';
-import { DEFAULT_PRIMITIVES } from '../../../api/gramjs/gramjsBuilders';
 import { buildInputPasskeyCredential } from '../../../api/gramjs/gramjsBuilders/passkeys';
+import { signInUserWithEmail } from '../../../things/auth/emailSignIn';
 import {
   PasskeyCredentialNotFoundError, PasskeyLoginRequestedError, RPCError, UserAlreadyAuthorizedError,
 } from '../errors';
@@ -21,8 +21,8 @@ export interface UserAuthParams {
   phoneNumber: string | (() => Promise<string>);
   webAuthTokenFailed: () => void;
   onPasskeyOption: (passkeyOption: ApiPasskeyOption) => void;
-  phoneCode: (isCodeViaApp?: boolean) => Promise<string>;
-  password: (hint?: string, noReset?: boolean) => Promise<string>;
+  phoneCode: (isCodeViaApp?: boolean, codeLength?: number) => Promise<string>;
+  password: (hint?: string, noReset?: boolean, pendingResetDate?: number) => Promise<string>;
   firstAndLastNames: () => Promise<[string, string?]>;
   qrCode: (qrCode: { token: Uint8Array; expires: number }) => Promise<void>;
   onError: (err: Error) => void;
@@ -141,128 +141,16 @@ async function signInUserWithWebToken(
   }
 }
 
-async function signInUser(
+// Things: accounts sign in by email, never by phone. The phone callbacks carry the email flow's steps
+function signInUser(
   client: TelegramClient, apiCredentials: ApiCredentials, authParams: UserAuthParams,
 ): Promise<Api.TypeUser> {
-  let phoneNumber;
-  let phoneCodeHash;
-  let isCodeViaApp;
   lastUsedMethod = 'phoneNumber';
 
-  while (true) {
-    try {
-      if (typeof authParams.phoneNumber === 'function') {
-        try {
-          phoneNumber = await authParams.phoneNumber();
-        } catch (err: unknown) {
-          if (err instanceof Error && err.message === 'RESTART_AUTH_WITH_QR') {
-            return await signInUserWithQrCode(client, apiCredentials, authParams);
-          }
-
-          if (err instanceof PasskeyLoginRequestedError) {
-            return await signInUserWithPasskey(client, apiCredentials, authParams, err.credentialJson);
-          }
-
-          throw err;
-        }
-      } else {
-        phoneNumber = authParams.phoneNumber;
-      }
-      const sendCodeResult = await sendCode(client, apiCredentials, phoneNumber, authParams.forceSMS);
-      phoneCodeHash = sendCodeResult.phoneCodeHash;
-      isCodeViaApp = sendCodeResult.isCodeViaApp;
-
-      if (typeof phoneCodeHash !== 'string') {
-        throw new Error('Failed to retrieve phone code hash');
-      }
-
-      break;
-    } catch (err: any) {
-      if (typeof authParams.phoneNumber !== 'function') {
-        throw err;
-      }
-
-      authParams.onError(err);
-    }
-  }
-
-  let phoneCode;
-  let isRegistrationRequired;
-  let termsOfService;
-
-  // eslint-disable-next-line no-constant-condition
-  while (1) {
-    try {
-      try {
-        phoneCode = await authParams.phoneCode(isCodeViaApp);
-      } catch (err: unknown) {
-        // This is the support for changing phone number from the phone code screen.
-        if (err instanceof Error && err.message === 'RESTART_AUTH') {
-          return signInUser(client, apiCredentials, authParams);
-        }
-      }
-
-      if (!phoneCode) {
-        throw new Error('Code is empty');
-      }
-
-      // May raise PhoneCodeEmptyError, PhoneCodeExpiredError,
-      // PhoneCodeHashEmptyError or PhoneCodeInvalidError.
-      const result = await client.invoke(new Api.auth.SignIn({
-        phoneNumber,
-        phoneCodeHash,
-        phoneCode,
-      }));
-
-      if (result instanceof Api.auth.AuthorizationSignUpRequired) {
-        isRegistrationRequired = true;
-        termsOfService = result.termsOfService;
-        break;
-      }
-
-      return result.user;
-    } catch (err: unknown) {
-      if (err instanceof RPCError && err.errorMessage === 'SESSION_PASSWORD_NEEDED') {
-        return signInWithPassword(client, apiCredentials, authParams);
-      } else if (err instanceof Error) {
-        authParams.onError(err);
-      } else {
-        // eslint-disable-next-line no-console
-        console.warn('Unexpected error:', err);
-      }
-    }
-  }
-
-  if (isRegistrationRequired) {
-    // eslint-disable-next-line no-constant-condition
-    while (1) {
-      try {
-        const [firstName, lastName] = await authParams.firstAndLastNames();
-        if (!firstName) {
-          throw new Error('First name is required');
-        }
-
-        const { user } = await client.invoke(new Api.auth.SignUp({
-          phoneNumber,
-          phoneCodeHash,
-          firstName,
-          lastName: lastName || DEFAULT_PRIMITIVES.STRING,
-        })) as Api.auth.Authorization;
-
-        if (termsOfService) {
-          // This is a violation of Telegram rules: the user should be presented with and accept TOS.
-          await client.invoke(new Api.help.AcceptTermsOfService({ id: termsOfService.id }));
-        }
-
-        return user;
-      } catch (err: any) {
-        authParams.onError(err);
-      }
-    }
-  }
-
-  authParams.onError(new Error('Auth failed'));
-  return signInUser(client, apiCredentials, authParams);
+  return signInUserWithEmail(client, apiCredentials, authParams, {
+    signInWithPassword: () => signInWithPassword(client, apiCredentials, authParams),
+    signInWithQrCode: () => signInUserWithQrCode(client, apiCredentials, authParams),
+  });
 }
 
 async function signInUserWithQrCode(
@@ -452,55 +340,6 @@ export async function signInUserWithPasskey(
     }
 
     throw err;
-  }
-}
-
-async function sendCode(
-  client: TelegramClient, apiCredentials: ApiCredentials, phoneNumber: string, forceSMS = false,
-): Promise<{
-  phoneCodeHash: string;
-  isCodeViaApp: boolean;
-}> {
-  try {
-    const { apiId, apiHash } = apiCredentials;
-    const sendResult = await client.invoke(new Api.auth.SendCode({
-      phoneNumber,
-      apiId,
-      apiHash,
-      settings: new Api.CodeSettings(),
-    }));
-
-    if (!(sendResult instanceof Api.auth.SentCode)) {
-      throw Error('Unexpected SentCodeSuccess');
-    }
-
-    // If we already sent a SMS, do not resend the phoneCode (hash may be empty)
-    if (!forceSMS || (sendResult.type instanceof Api.auth.SentCodeTypeSms)) {
-      return {
-        phoneCodeHash: sendResult.phoneCodeHash,
-        isCodeViaApp: sendResult.type instanceof Api.auth.SentCodeTypeApp,
-      };
-    }
-
-    const resendResult = await client.invoke(new Api.auth.ResendCode({
-      phoneNumber,
-      phoneCodeHash: sendResult.phoneCodeHash,
-    }));
-
-    if (!(resendResult instanceof Api.auth.SentCode)) {
-      throw Error('Unexpected SentCodeSuccess');
-    }
-
-    return {
-      phoneCodeHash: resendResult.phoneCodeHash,
-      isCodeViaApp: resendResult.type instanceof Api.auth.SentCodeTypeApp,
-    };
-  } catch (err: unknown) {
-    if (err instanceof RPCError && err.errorMessage === 'AUTH_RESTART') {
-      return sendCode(client, apiCredentials, phoneNumber, forceSMS);
-    } else {
-      throw err;
-    }
   }
 }
 

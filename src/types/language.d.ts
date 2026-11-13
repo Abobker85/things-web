@@ -3395,6 +3395,21 @@ export interface LangPair {
   'SettingsKeywordsLastSeen': undefined;
   'SettingsKeywordsLogOut': undefined;
   'SettingsSearchEmpty': undefined;
+  'ThingsAuthEmailNote': undefined;
+  'ThingsAuthEmailPlaceholder': undefined;
+  'ThingsAuthCodeNote': undefined;
+  'ThingsAuthWrongEmail': undefined;
+  'ThingsSignUpTitle': undefined;
+  'ThingsSignUpNote': undefined;
+  'ThingsSignUpName': undefined;
+  'ThingsUsernameFree': undefined;
+  'ThingsUsernameTaken': undefined;
+  'ThingsUsernameInvalid': undefined;
+  'ThingsForgotPassword': undefined;
+  'ThingsPasswordResetDone': undefined;
+  'ThingsErrorEmailInvalid': undefined;
+  'ThingsErrorCodeExpired': undefined;
+  'ThingsErrorNameInvalid': undefined;
 }
 
 export interface LangPairWithVariables<V = LangVariable> {
@@ -5670,6 +5685,12 @@ export interface LangPairWithVariables<V = LangVariable> {
   'PeerPickerUnknownPeer': {
     'id': V;
   };
+  'ThingsPasswordResetScheduled': {
+    'date': V;
+  };
+  'ThingsPasswordResetTooSoon': {
+    'date': V;
+  };
 }
 
 export interface LangPairPlural {
@@ -6902,7 +6923,9 @@ export interface LangKeyGroups {
       | 'StarsSubscriptionExpiredInfo'
       | 'StarsSubscriptionExpires'
       | 'StarsSubscriptionRefulfillInfo'
-      | 'StarsSubscriptionRenews';
+      | 'StarsSubscriptionRenews'
+      | 'ThingsPasswordResetScheduled'
+      | 'ThingsPasswordResetTooSoon';
     variables: 'date';
   };
   'amount': {

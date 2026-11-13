@@ -81,8 +81,10 @@ export type ApiUpdateAuthorizationState = {
   '@type': 'updateAuthorizationState';
   authorizationState: ApiUpdateAuthorizationStateType;
   isCodeViaApp?: boolean;
+  codeLength?: number;
   hint?: string;
   noReset?: boolean;
+  passwordResetDate?: number;
   qrCode?: { token: string; expires: number };
 };
 

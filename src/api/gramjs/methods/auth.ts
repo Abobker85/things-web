@@ -38,10 +38,11 @@ export function onRequestPhoneNumber() {
   });
 }
 
-export function onRequestCode(isCodeViaApp = false) {
+export function onRequestCode(isCodeViaApp = false, codeLength?: number) {
   sendApiUpdate({
     ...buildAuthStateUpdate('authorizationStateWaitCode'),
     isCodeViaApp,
+    codeLength,
   });
 
   return new Promise<string>((resolve, reject) => {
@@ -50,11 +51,12 @@ export function onRequestCode(isCodeViaApp = false) {
   });
 }
 
-export function onRequestPassword(hint?: string, noReset?: boolean) {
+export function onRequestPassword(hint?: string, noReset?: boolean, pendingResetDate?: number) {
   sendApiUpdate({
     ...buildAuthStateUpdate('authorizationStateWaitPassword'),
     hint,
     noReset,
+    passwordResetDate: pendingResetDate,
   });
 
   return new Promise<string>((resolve) => {

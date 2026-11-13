@@ -39,6 +39,13 @@ const ERROR_KEYS: Record<string, RegularLangKey> = {
   CODE_INVALID: 'ErrorEmailCodeInvalid',
   PASSWORD_MISSING: 'ErrorPasswordMissing',
   PASSKEY_CREDENTIAL_NOT_FOUND: 'ErrorPasskeyUnknown',
+  // Things: email sign-in
+  EMAIL_INVALID: 'ThingsErrorEmailInvalid',
+  CODE_EXPIRED: 'ThingsErrorCodeExpired',
+  NAME_INVALID: 'ThingsErrorNameInvalid',
+  USERNAME_INVALID: 'ThingsUsernameInvalid',
+  USERNAME_TAKEN: 'ThingsUsernameTaken',
+  PASSWORD_INVALID: 'ErrorIncorrectPassword',
 };
 
 function resolveErrorKey(errorMessage: string) {

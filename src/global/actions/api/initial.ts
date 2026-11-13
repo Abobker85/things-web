@@ -11,7 +11,6 @@ import { updateAppBadge } from '../../../util/appBadge';
 import { MAIN_IDB_STORE } from '../../../util/browser/idb';
 import { toCredentialRequestOptions } from '../../../util/browser/passkeys';
 import {
-  IS_WEBAUTHN_SUPPORTED,
   IS_WEBM_SUPPORTED, MAX_BUFFER_SIZE, PLATFORM_ENV,
 } from '../../../util/browser/windowEnvironment';
 import * as cacheApi from '../../../util/cacheApi';
@@ -109,7 +108,8 @@ addActionHandler('initApi', async (global, actions): Promise<void> => {
       langCode: language,
       isTestServerRequested: hasTestParam,
       accountIds,
-      hasPasskeySupport: IS_WEBAUTHN_SUPPORTED,
+      // Things: no passkey sign-in in the first version
+      hasPasskeySupport: false,
     });
 
     void setShouldEnableDebugLog(Boolean(shouldCollectDebugLogs));
@@ -121,7 +121,8 @@ addActionHandler('initApi', async (global, actions): Promise<void> => {
 addActionHandler('setAuthPhoneNumber', (global, actions, payload): ActionReturnType => {
   const { phoneNumber } = payload;
 
-  void callApi('provideAuthPhoneNumber', phoneNumber.replace(/[^\d]/g, ''));
+  // Things: the sign-in screen asks for an email, and it travels in the phone number's place
+  void callApi('provideAuthPhoneNumber', phoneNumber.trim());
 
   return updateAuth(global, {
     isLoading: true,
